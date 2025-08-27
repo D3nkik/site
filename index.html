@@ -772,12 +772,14 @@
     </div>
 </section>
 
+<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
 <script>
-// ===== НАСТРОЙКА GITHUB GIST =====
-const GIST_ID = 'c32ea9af817cee779992cb1fef32f965';
-const GITHUB_TOKEN = ''; // Пока оставьте пустым
+// ===== НАСТРОЙКА SUPABASE =====
+const supabaseUrl = 'https://fdwdfyifbvoqzknpjmby.supabase.co'
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZkd2RmeWlmYnZvcXprbnBqbWJ5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTYzMzIwOTcsImV4cCI6MjA3MTkwODA5N30.y94t93awxRqsrNkUVZhjyhEbVPOopAS2e5hBsymecn8'
+const supabase = supabase.createClient(supabaseUrl, supabaseKey)
 
-// ===== СИСТЕМА ОТЗЫВОВ С GITHUB GIST =====
+// ===== СИСТЕМА ОТЗЫВОВ =====
 
 // Функция для загрузки отзывов
 async function loadReviews() {
@@ -785,97 +787,69 @@ async function loadReviews() {
         const reviewsList = document.getElementById('reviews-list');
         reviewsList.innerHTML = '<p style="text-align: center; color: #666;">Загрузка отзывов...</p>';
         
-        const response = await fetch(`https://api.github.com/gists/${GIST_ID}`);
+        const { data: reviews, error } = await supabase
+            .from('reviews')
+            .select('*')
+            .order('created_at', { ascending: false });
         
-        if (!response.ok) {
-            throw new Error('Ошибка загрузки');
-        }
+        if (error) throw error;
         
-        const data = await response.json();
-        const reviews = JSON.parse(data.files['reviews.json'].content);
-        
-        reviewsList.innerHTML = '';
-        
-        if (reviews.length === 0) {
-            reviewsList.innerHTML = '<p style="text-align: center; color: #666;">Пока нет отзывов. Будьте первым!</p>';
-            return;
-        }
-        
-        // Сортируем отзывы по дате (новые сначала)
-        reviews.sort((a, b) => new Date(b.date) - new Date(a.date));
-        
-        reviews.forEach(review => {
-            const reviewElement = document.createElement('div');
-            reviewElement.style.borderBottom = '1px solid #eee';
-            reviewElement.style.padding = '15px 0';
-            
-            const date = new Date(review.date).toLocaleDateString('ru-RU', {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric',
-                hour: '2-digit',
-                minute: '2-digit'
-            });
-            
-            reviewElement.innerHTML = `
-                <div style="font-weight: bold; margin-bottom: 5px; color: #5308B7;">${review.name}</div>
-                <div style="color: #666; font-size: 14px; margin-bottom: 10px;">${date}</div>
-                <div style="line-height: 1.5;">${review.comment}</div>
-            `;
-            
-            reviewsList.appendChild(reviewElement);
-        });
+        displayReviews(reviews || []);
         
     } catch (error) {
-        console.error('Ошибка загрузки отзывов:', error);
+        console.error('Ошибка загрузки:', error);
         document.getElementById('reviews-list').innerHTML = 
             '<p style="text-align: center; color: #ff0000;">Ошибка загрузки отзывов</p>';
     }
 }
 
+// Функция для отображения отзывов
+function displayReviews(reviews) {
+    const reviewsList = document.getElementById('reviews-list');
+    reviewsList.innerHTML = '';
+    
+    if (reviews.length === 0) {
+        reviewsList.innerHTML = '<p style="text-align: center; color: #666;">Пока нет отзывов. Будьте первым!</p>';
+        return;
+    }
+    
+    reviews.forEach(review => {
+        const reviewElement = document.createElement('div');
+        reviewElement.style.borderBottom = '1px solid #eee';
+        reviewElement.style.padding = '15px 0';
+        
+        const date = new Date(review.created_at).toLocaleDateString('ru-RU', {
+            year: 'numeric', month: 'long', day: 'numeric',
+            hour: '2-digit', minute: '2-digit'
+        });
+        
+        reviewElement.innerHTML = `
+            <div style="font-weight: bold; margin-bottom: 5px; color: #5308B7;">${review.name}</div>
+            <div style="color: #666; font-size: 14px; margin-bottom: 10px;">${date}</div>
+            <div style="line-height: 1.5;">${review.comment}</div>
+        `;
+        
+        reviewsList.appendChild(reviewElement);
+    });
+}
+
 // Функция для сохранения отзыва
 async function saveReview(name, comment) {
     try {
-        // Сначала загружаем текущие отзывы
-        const response = await fetch(`https://api.github.com/gists/${GIST_ID}`);
-        
-        if (!response.ok) {
-            throw new Error('Ошибка загрузки');
-        }
-        
-        const data = await response.json();
-        const currentReviews = JSON.parse(data.files['reviews.json'].content);
-        
-        // Добавляем новый отзыв
-        const newReview = {
-            name: name,
-            comment: comment,
-            date: new Date().toISOString(),
-            id: Date.now()
-        };
-        
-        const updatedReviews = [...currentReviews, newReview];
-        
-        // Обновляем gist
-        const updateResponse = await fetch(`https://api.github.com/gists/${GIST_ID}`, {
-            method: 'PATCH',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': GITHUB_TOKEN ? `token ${GITHUB_TOKEN}` : ''
-            },
-            body: JSON.stringify({
-                files: {
-                    'reviews.json': {
-                        content: JSON.stringify(updatedReviews, null, 2)
-                    }
+        const { error } = await supabase
+            .from('reviews')
+            .insert([
+                {
+                    name: name,
+                    comment: comment
                 }
-            })
-        });
+            ]);
         
-        return updateResponse.ok;
+        if (error) throw error;
+        return true;
         
     } catch (error) {
-        console.error('Ошибка сохранения отзыва:', error);
+        console.error('Ошибка сохранения:', error);
         return false;
     }
 }
@@ -892,12 +866,6 @@ document.getElementById('reviewForm').addEventListener('submit', async function(
         return;
     }
     
-    if (comment.length > 5000) {
-        alert('Отзыв не должен превышать 5000 символов');
-        return;
-    }
-    
-    // Показываем индикатор загрузки
     const submitBtn = this.querySelector('button[type="submit"]');
     const originalText = submitBtn.textContent;
     submitBtn.textContent = 'Отправка...';
@@ -906,25 +874,17 @@ document.getElementById('reviewForm').addEventListener('submit', async function(
     const success = await saveReview(name, comment);
     
     if (success) {
-        // Очищаем форму
         document.getElementById('reviewForm').reset();
         document.getElementById('char-count').textContent = '0/5000 символов';
-        
-        // Обновляем список отзывов
         await loadReviews();
-        
-        // Прокручиваем к отзывам
         document.getElementById('reviews-container').scrollIntoView({ 
-            behavior: 'smooth',
-            block: 'start'
+            behavior: 'smooth', block: 'start'
         });
-        
         alert('Спасибо за ваш отзыв! ✅');
     } else {
-        alert('Для отправки отзывов нужен GitHub токен. Чтение отзывов работает!');
+        alert('Ошибка при отправке отзыва.');
     }
     
-    // Восстанавливаем кнопку
     submitBtn.textContent = originalText;
     submitBtn.disabled = false;
 });
@@ -934,17 +894,22 @@ document.getElementById('review-text').addEventListener('input', function() {
     const length = this.value.length;
     const counter = document.getElementById('char-count');
     counter.textContent = `${length}/5000 символов`;
-    
-    if (length > 4500) {
-        counter.style.color = '#ff0000';
-    } else if (length > 4000) {
-        counter.style.color = '#ff6600';
-    } else {
-        counter.style.color = '#666';
-    }
+    counter.style.color = length > 4500 ? '#ff0000' : length > 4000 ? '#ff6600' : '#666';
 });
 
-// Функции для админки
+// Загружаем отзывы при загрузке страницы
+document.addEventListener('DOMContentLoaded', function() {
+    loadReviews();
+    
+    document.querySelector('a[href="#review-form"]').addEventListener('click', function(e) {
+        e.preventDefault();
+        document.getElementById('review-form').scrollIntoView({ 
+            behavior: 'smooth', block: 'start'
+        });
+    });
+});
+
+// Админ-панель
 async function showAdminPanel() {
     const password = prompt('Введите пароль админа:');
     if (password === '1') {
@@ -964,14 +929,12 @@ async function loadAdminReviews() {
         const adminList = document.getElementById('admin-reviews-list');
         adminList.innerHTML = '<p style="text-align: center; color: #666;">Загрузка...</p>';
         
-        const response = await fetch(`https://api.github.com/gists/${GIST_ID}`);
+        const { data: reviews, error } = await supabase
+            .from('reviews')
+            .select('*')
+            .order('created_at', { ascending: false });
         
-        if (!response.ok) {
-            throw new Error('Ошибка загрузки');
-        }
-        
-        const data = await response.json();
-        const reviews = JSON.parse(data.files['reviews.json'].content);
+        if (error) throw error;
         
         adminList.innerHTML = '';
         
@@ -979,9 +942,6 @@ async function loadAdminReviews() {
             adminList.innerHTML = '<p style="text-align: center; color: #666;">Нет отзывов для управления</p>';
             return;
         }
-        
-        // Сортируем отзывы по дате (новые сначала)
-        reviews.sort((a, b) => new Date(b.date) - new Date(a.date));
         
         reviews.forEach(review => {
             const reviewElement = document.createElement('div');
@@ -991,12 +951,9 @@ async function loadAdminReviews() {
             reviewElement.style.marginBottom = '15px';
             reviewElement.style.background = '#f9f9f9';
             
-            const date = new Date(review.date).toLocaleDateString('ru-RU', {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric',
-                hour: '2-digit',
-                minute: '2-digit'
+            const date = new Date(review.created_at).toLocaleDateString('ru-RU', {
+                year: 'numeric', month: 'long', day: 'numeric',
+                hour: '2-digit', minute: '2-digit'
             });
             
             reviewElement.innerHTML = `
@@ -1030,74 +987,33 @@ async function deleteReview(reviewId) {
     }
     
     try {
-        // Загружаем текущие отзывы
-        const response = await fetch(`https://api.github.com/gists/${GIST_ID}`);
+        const { error } = await supabase
+            .from('reviews')
+            .delete()
+            .eq('id', reviewId);
         
-        if (!response.ok) {
-            throw new Error('Ошибка загрузки');
-        }
+        if (error) throw error;
         
-        const data = await response.json();
-        const reviews = JSON.parse(data.files['reviews.json'].content);
-        
-        // Удаляем отзыв
-        const updatedReviews = reviews.filter(review => review.id !== reviewId);
-        
-        // Обновляем gist
-        const updateResponse = await fetch(`https://api.github.com/gists/${GIST_ID}`, {
-            method: 'PATCH',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': GITHUB_TOKEN ? `token ${GITHUB_TOKEN}` : ''
-            },
-            body: JSON.stringify({
-                files: {
-                    'reviews.json': {
-                        content: JSON.stringify(updatedReviews, null, 2)
-                    }
-                }
-            })
-        });
-        
-        if (updateResponse.ok) {
-            alert('Отзыв успешно удален!');
-            await loadReviews();
-            await loadAdminReviews();
-        } else {
-            alert('Ошибка при удалении отзыва');
-        }
+        alert('Отзыв успешно удален!');
+        await loadReviews();
+        await loadAdminReviews();
         
     } catch (error) {
-        console.error('Ошибка удаления отзыва:', error);
+        console.error('Ошибка удаления:', error);
         alert('Ошибка при удалении отзыва');
     }
 }
 
-// Загружаем отзывы при загрузке страницы
-document.addEventListener('DOMContentLoaded', function() {
-    loadReviews();
-    
-    // Прокрутка к форме при клике на кнопку "Оставить отзыв"
-    document.querySelector('a[href="#review-form"]').addEventListener('click', function(e) {
-        e.preventDefault();
-        document.getElementById('review-form').scrollIntoView({ 
-            behavior: 'smooth',
-            block: 'start'
-        });
-    });
-});
-
 // Активация админ-панели по комбинации клавиш
 document.addEventListener('keydown', function(e) {
-    // Ctrl+Alt+A для открытия админки
     if (e.ctrlKey && e.altKey && e.key === 'a') {
         e.preventDefault();
         showAdminPanel();
     }
 });
 
+console.log('Supabase подключен');
 console.log('Админ-панель: Ctrl+Alt+A');
-console.log('GitHub Gist настроен с ID:', GIST_ID);
 </script>
 
 </body>
