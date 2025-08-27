@@ -774,36 +774,31 @@
 
 <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
 <script>
-// ===== НАСТРОЙКА SUPABASE =====
+// Конфигурация
 const supabaseUrl = 'https://fdwdfyifbvoqzknpjmby.supabase.co'
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZkd2RmeWlmYnZvcXprbnBqbWJ5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTYzMzIwOTcsImV4cCI6MjA3MTkwODA5N30.y94t93awxRqsrNkUVZhjyhEbVPOopAS2e5hBsymecn8'
-const supabase = supabase.createClient(supabaseUrl, supabaseKey)
 
-// Ждем пока библиотека загрузится
-document.addEventListener('DOMContentLoaded', function() {
-    // Только после загрузки страницы создаем клиент
-    const supabase = window.supabase.createClient(supabaseUrl, supabaseKey)
-    
-    // ===== ОСТАЛЬНОЙ КОД СИСТЕМЫ ОТЗЫВОВ =====
-    // (весь остальной код из предыдущего сообщения)
-    
-    console.log('Supabase подключен');
-});
-
-// Создаем клиент после загрузки библиотеки
+// Глобальная переменная
 let supabase;
 
-function initSupabase() {
-    supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
-    console.log('Supabase инициализирован');
-}
+// Ждем загрузки библиотеки и страницы
+document.addEventListener('DOMContentLoaded', function() {
+    if (window.supabase) {
+        supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
+        console.log('Supabase подключен');
+        initReviewSystem();
+    } else {
+        console.error('Supabase library not loaded');
+    }
+});
 
-// Инициализируем когда библиотека загрузится
-if (window.supabase) {
-    initSupabase();
-} else {
-    document.addEventListener('DOMContentLoaded', initSupabase);
-}
+function initReviewSystem() {
+    // ===== ВЕСЬ ВАШ КОД С ФУНКЦИЯМИ ЗДЕСЬ =====
+    // loadReviews, saveReview, displayReviews и т.д.
+    // Используйте переменную supabase
+    
+    // Загружаем отзывы при загрузке страницы
+    loadReviews();
 // ===== СИСТЕМА ОТЗЫВОВ =====
 
 // Функция для загрузки отзывов
