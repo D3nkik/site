@@ -790,6 +790,20 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('Supabase подключен');
 });
 
+// Создаем клиент после загрузки библиотеки
+let supabase;
+
+function initSupabase() {
+    supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
+    console.log('Supabase инициализирован');
+}
+
+// Инициализируем когда библиотека загрузится
+if (window.supabase) {
+    initSupabase();
+} else {
+    document.addEventListener('DOMContentLoaded', initSupabase);
+}
 // ===== СИСТЕМА ОТЗЫВОВ =====
 
 // Функция для загрузки отзывов
