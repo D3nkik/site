@@ -796,12 +796,7 @@ function initReviewSystem() {
     // ===== ВЕСЬ ВАШ КОД С ФУНКЦИЯМИ ЗДЕСЬ =====
     // loadReviews, saveReview, displayReviews и т.д.
     // Используйте переменную supabase
-    
-    // Загружаем отзывы при загрузке страницы
-    loadReviews();
-// ===== СИСТЕМА ОТЗЫВОВ =====
-
-// Функция для загрузки отзывов
+    // Функция для загрузки отзывов
 async function loadReviews() {
     try {
         const reviewsList = document.getElementById('reviews-list');
@@ -1023,6 +1018,11 @@ async function deleteReview(reviewId) {
         alert('Ошибка при удалении отзыва');
     }
 }
+    // Загружаем отзывы при загрузке страницы
+    loadReviews();
+// ===== СИСТЕМА ОТЗЫВОВ =====
+
+
 
 // Активация админ-панели по комбинации клавиш
 document.addEventListener('keydown', function(e) {
@@ -1034,6 +1034,7 @@ document.addEventListener('keydown', function(e) {
 
 console.log('Supabase подключен');
 console.log('Админ-панель: Ctrl+Alt+A');
+}
 </script>
 
 </body>
