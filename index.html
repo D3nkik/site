@@ -1031,7 +1031,9 @@ document.addEventListener('keydown', function(e) {
         showAdminPanel();
     }
 });
-
+    window.deleteReview = deleteReview;
+    window.showAdminPanel = showAdminPanel;
+    window.hideAdminPanel = hideAdminPanel;
 console.log('Supabase подключен');
 console.log('Админ-панель: Ctrl+Alt+A');
 }
