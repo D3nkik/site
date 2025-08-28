@@ -543,8 +543,11 @@
         </div>
     </footer>
 
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+
     <!-- JavaScript -->
     <script>
+        
         // Мобильное меню
         document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
             document.querySelector('.header-nav').classList.toggle('active');
@@ -633,23 +636,42 @@
         });
 
         // Функция для обновления рейтингов на главной странице
-        function updateMainPageRatings() {
-            // Проверяем localStorage для каждого логотипа
-            for (let i = 1; i <= 5; i++) {
-                const ratingKey = `logo${i}-rating`;
-                const ratingsData = localStorage.getItem(ratingKey);
-                const ratingElement = document.getElementById(`logo${i}-rating`);
+        async function updateMainPageRatings() {
+            try {
+                // Инициализируем Supabase
+                const supabaseUrl = 'https://fdwdfyifbvoqzknpjmby.supabase.co';
+                const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZkd2RmeWlmYnZvcXprbnBqbWJ5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTYzMzIwOTcsImV4cCI6MjA3MTkwODA5N30.y94t93awxRqsrNkUVZhjyhEbVPOopAS2e5hBsymecn8';
                 
-                if (ratingsData && ratingElement) {
-                    const data = JSON.parse(ratingsData);
+                const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
+                
+                // Получаем рейтинги для всех логотипов
+                for (let i = 1; i <= 5; i++) {
+                    const ratingElement = document.getElementById(`logo${i}-rating`);
                     
-                    if (data.totalRatings > 0) {
-                        ratingElement.innerHTML = `
-                            <span class="stars-preview">${getStars(data.averageRating)}</span>
-                            <div>${data.averageRating.toFixed(1)} (${data.totalRatings} оценок)</div>
-                        `;
+                    if (ratingElement) {
+                        const { data, error } = await supabase
+                            .from('reviews')
+                            .select('rating')
+                            .eq('logo_id', i);
+                        
+                        if (error) {
+                            console.error(`Ошибка загрузки рейтинга для логотипа ${i}:`, error);
+                            continue;
+                        }
+                        
+                        if (data && data.length > 0) {
+                            const total = data.reduce((sum, item) => sum + item.rating, 0);
+                            const average = total / data.length;
+                            
+                            ratingElement.innerHTML = `
+                                <span class="stars-preview">${getStars(average)}</span>
+                                <div>${average.toFixed(1)} (${data.length} оценок)</div>
+                            `;
+                        }
                     }
                 }
+            } catch (error) {
+                console.error('Ошибка обновления рейтингов:', error);
             }
         }
 
@@ -661,18 +683,6 @@
             
             return '★'.repeat(fullStars) + '½'.repeat(halfStar) + '☆'.repeat(emptyStars);
         }
-
-        // Обновляем рейтинги при загрузке страницы
-        document.addEventListener('DOMContentLoaded', function() {
-            updateMainPageRatings();
-            
-            // Также обновляем при возврате на страницу (если пользователь оценил логотип)
-            window.addEventListener('storage', function(e) {
-                if (e.key && e.key.includes('logo') && e.key.includes('rating')) {
-                    updateMainPageRatings();
-                }
-            });
-        });
     </script>
 </body>
 </html>
