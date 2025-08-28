@@ -396,6 +396,70 @@
         .mt-30 {
             margin-top: 30px;
         }
+
+        .about-content p, .project-description p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #333;
+            padding: 20px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            box-shadow: 0 5px 20px rgba(83, 8, 183, 0.08);
+            border-left: 4px solid #5308B7;
+            margin: 20px 0;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: slideUpFade 0.8s ease forwards;
+        }
+
+        .about-content p:nth-child(even), 
+        .project-description p:nth-child(even) {
+            border-left: 4px solid #FFD772;
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+        }
+
+        @keyframes slideUpFade {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Задержки для последовательного появления */
+        .about-content p:nth-child(1) { animation-delay: 0.2s; }
+        .about-content p:nth-child(2) { animation-delay: 0.4s; }
+        .about-content p:nth-child(3) { animation-delay: 0.6s; }
+
+        .project-description p:nth-child(1) { animation-delay: 0.8s; }
+        .project-description p:nth-child(2) { animation-delay: 1.0s; }
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .about-content p, .project-description p {
+                font-size: 16px;
+                padding: 15px;
+                margin: 15px 0;
+            }
+        }
+
+        /* Убираем ВСЕ эффекты при наведении */
+        .about-content p:hover, 
+        .project-description p:hover {
+            transform: translateY(0) !important;
+            box-shadow: 0 5px 20px rgba(83, 8, 183, 0.08) !important;
+            border-left: 4px solid #5308B7 !important;
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%) !important;
+            cursor: default;
+        }
+
+        .about-content p:nth-child(even):hover, 
+        .project-description p:nth-child(even):hover {
+            border-left: 4px solid #FFD772 !important;
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%) !important;
+        }
+
+
     </style>
 </head>
 <body>
@@ -409,7 +473,6 @@
                     </a>
                 </div>
                 
-                <button class="mobile-menu-toggle">☰</button>
                 
                 <nav class="header-nav">
                     <a href="#about">О компании</a>
@@ -546,7 +609,7 @@
 
     <!-- JavaScript -->
     <script>
-        
+
         // Мобильное меню
         document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
             document.querySelector('.header-nav').classList.toggle('active');
