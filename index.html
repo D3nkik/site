@@ -461,7 +461,7 @@
                         </div>
                         <div class="logo-info">
                             <h3 class="logo-title">Логотип 1</h3>
-                            <div class="logo-rating">
+                            <div class="logo-rating" id="logo1-rating">
                                 <div class="no-ratings">Пока нет оценок</div>
                             </div>
                             <a href="logo1.html" class="view-button">Оценить логотип</a>
@@ -629,6 +629,48 @@
             
             card.addEventListener('mouseleave', function() {
                 this.style.zIndex = '1';
+            });
+        });
+
+        // Функция для обновления рейтингов на главной странице
+        function updateMainPageRatings() {
+            // Проверяем localStorage для каждого логотипа
+            for (let i = 1; i <= 5; i++) {
+                const ratingKey = `logo${i}-rating`;
+                const ratingsData = localStorage.getItem(ratingKey);
+                const ratingElement = document.getElementById(`logo${i}-rating`);
+                
+                if (ratingsData && ratingElement) {
+                    const data = JSON.parse(ratingsData);
+                    
+                    if (data.totalRatings > 0) {
+                        ratingElement.innerHTML = `
+                            <span class="stars-preview">${getStars(data.averageRating)}</span>
+                            <div>${data.averageRating.toFixed(1)} (${data.totalRatings} оценок)</div>
+                        `;
+                    }
+                }
+            }
+        }
+
+        // Функция для получения звездочек рейтинга
+        function getStars(rating) {
+            const fullStars = Math.floor(rating);
+            const halfStar = rating % 1 >= 0.5 ? 1 : 0;
+            const emptyStars = 5 - fullStars - halfStar;
+            
+            return '★'.repeat(fullStars) + '½'.repeat(halfStar) + '☆'.repeat(emptyStars);
+        }
+
+        // Обновляем рейтинги при загрузке страницы
+        document.addEventListener('DOMContentLoaded', function() {
+            updateMainPageRatings();
+            
+            // Также обновляем при возврате на страницу (если пользователь оценил логотип)
+            window.addEventListener('storage', function(e) {
+                if (e.key && e.key.includes('logo') && e.key.includes('rating')) {
+                    updateMainPageRatings();
+                }
             });
         });
     </script>
