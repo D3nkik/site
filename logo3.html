@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Логотип 3 - Оценка и отзывы</title>
+    <style>
+        /* Основные стили */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .back-button {
+            margin-bottom: 20px;
+        }
+        
+        .back-button a {
+            display: inline-flex;
+            align-items: center;
+            color: #5308B7;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            padding: 8px 16px;
+            border-radius: 6px;
+            transition: background-color 0.2s;
+        }
+        
+        .back-button a:hover {
+            background-color: rgba(83, 8, 183, 0.1);
+            text-decoration: none;
+        }
+        
+        .logo-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 30px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        
+        .logo-header h1 {
+            color: #5308B7;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .logo-image {
+            max-width: 400px;
+            max-height: 300px;
+            margin: 25px 0;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            border: 4px solid white;
+            transition: transform 0.3s ease;
+        }
+        
+        .logo-image:hover {
+            transform: scale(1.02);
+        }
+        
+        .logo-description {
+            text-align: left;
+            line-height: 1.7;
+            font-size: 16px;
+            color: #444;
+            margin: 25px 0 0;
+            padding: 0;
+        }
+        
+        .logo-description p {
+            margin-bottom: 18px;
+            text-align: justify;
+        }
+        
+        /* Секция рейтинга */
+        .rating-section {
+            text-align: center;
+            margin: 30px 0;
+            padding: 30px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .rating-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #FFD772, #5308B7);
+        }
+        
+        .rating-section h2 {
+            color: #5308B7;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+        
+        .average-rating {
+            font-size: 28px;
+            color: #FFD772;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+        
+        .rating-value {
+            font-size: 36px;
+            font-weight: bold;
+            color: #5308B7;
+            margin: 10px 0;
+        }
+        
+        .rating-count {
+            color: #666;
+            margin-top: 10px;
+            font-size: 16px;
+            font-weight: 500;
+        }
+        
+        /* Форма отзыва */
+        .review-form {
+            background: white;
+            padding: 35px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            margin: 30px 0;
+        }
+        
+        .review-form h2 {
+            color: #5308B7;
+            margin-bottom: 25px;
+            font-size: 1.8em;
+        }
+        
+        .star-rating {
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .star {
+            font-size: 36px;
+            cursor: pointer;
+            color: #e0e0e0;
+            margin: 0 3px;
+            transition: all 0.2s ease;
+            display: inline-block;
+        }
+        
+        .star:hover {
+            transform: scale(1.2);
+            color: #FFD772;
+        }
+        
+        .star.active {
+            color: #FFD772;
+            text-shadow: 0 0 10px rgba(255, 215, 114, 0.5);
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #5308B7;
+            font-size: 16px;
+        }
+        
+        input, textarea {
+            width: 100%;
+            padding: 14px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            box-sizing: border-box;
+            transition: border-color 0.2s;
+            font-family: inherit;
+        }
+        
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #5308B7;
+            box-shadow: 0 0 0 3px rgba(83, 8, 183, 0.1);
+        }
+        
+        textarea {
+            height: 140px;
+            resize: vertical;
+            line-height: 1.5;
+        }
+        
+        button {
+            background: linear-gradient(135deg, #FFD772, #FFE872);
+            color: #2c2c2c;
+            padding: 16px 35px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(255, 215, 114, 0.3);
+        }
+        
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 215, 114, 0.4);
+        }
+        
+        button:active {
+            transform: translateY(0);
+        }
+        
+        .char-count {
+            text-align: right;
+            font-size: 14px;
+            color: #666;
+            margin-top: 5px;
+        }
+        
+        /* Контейнер отзывов */
+        .reviews-container {
+            margin-top: 40px;
+        }
+        
+        .reviews-container h2 {
+            color: #5308B7;
+            margin-bottom: 25px;
+            font-size: 1.8em;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        
+        .review-item {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+            border-left: 4px solid #5308B7;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .review-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .reviewer-name {
+            font-weight: 600;
+            color: #5308B7;
+            font-size: 18px;
+        }
+        
+        .review-date {
+            color: #888;
+            font-size: 14px;
+        }
+        
+        .review-rating {
+            color: #FFD772;
+            font-size: 18px;
+            margin-right: 10px;
+            letter-spacing: 1px;
+        }
+        
+        .review-content {
+            color: #444;
+            line-height: 1.6;
+            font-size: 16px;
+            white-space: pre-wrap;
+        }
+        
+        .no-reviews {
+            text-align: center;
+            padding: 40px;
+            color: #888;
+            font-style: italic;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+        }
+        
+        /* Админ-панель */
+        #admin-panel {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 25px;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            z-index: 1000;
+            width: 90%;
+            max-width: 800px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        
+        .admin-header h2 {
+            color: #5308B7;
+            margin: 0;
+        }
+        
+        .admin-close-btn {
+            background: #ff4444;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+        
+        .admin-close-btn:hover {
+            background: #ff3333;
+        }
+        
+        .admin-review-item {
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 18px;
+            margin-bottom: 15px;
+            background: #fafafa;
+        }
+        
+        .admin-review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+        
+        .admin-review-info {
+            flex: 1;
+        }
+        
+        .admin-review-name {
+            font-weight: 600;
+            color: #5308B7;
+            margin-bottom: 5px;
+        }
+        
+        .admin-review-meta {
+            color: #666;
+            font-size: 13px;
+            margin-bottom: 5px;
+        }
+        
+        .admin-review-comment {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 3px solid #5308B7;
+            margin-top: 10px;
+        }
+        
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            .logo-header, .rating-section, .review-form {
+                padding: 20px;
+            }
+            
+            .logo-header h1 {
+                font-size: 2em;
+            }
+            
+            .logo-image {
+                max-width: 100%;
+            }
+            
+            .review-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .review-header > div {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                margin-top: 8px;
+            }
+            
+            .star {
+                font-size: 32px;
+            }
+        }
+        
+        /* Анимации */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .review-item {
+            animation: fadeIn 0.4s ease forwards;
+        }
+        
+        /* Кастомный скроллбар */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #c1c1c1;
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #a8a8a8;
+        }
+        .rating-star {
+            font-size: 28px;
+            margin: 0 2px;
+            display: inline-block;
+        }
+
+        .average-rating {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="back-button">
+            <a href="index.html">← Назад к списку логотипов</a>
+        </div>
+
+        <div class="logo-header">
+            <h1>Логотип 3</h1>
+            <img id="logo-image" class="logo-image" src="//i.siteapi.org/Qm30xKvvqnkv3H7tQOb1Sv4cEbQ=/0x0:691x481/270x180/center/top/filters:fill(transparent):format(png)/s2.siteapi.org/ab3217cc07cc4f8/img/oy46omiy9is8sgk4kokkk8k4440wg8" alt="Логотип 3">
+            
+            <div class="logo-description">
+                <p>Этот логотип представляет собой яркий и динамичный дизайн, сочетающий абстрактный символ и текстовую часть, что создает ощущение праздника и энергии. Основным элементом слева является стилизованный символ, напоминающий спираль или раковину, выполненную в многоцветной палитре. Цвета — от красного на верхушке, через оранжевый, желтый, зеленый, голубой и фиолетовый — плавно перетекают друг в друга, образуя радужный эффект. Верхняя часть символа увенчана небольшими острыми выступами, напоминающими лучи солнца или корону, что добавляет нотку торжественности и тепла. Эта спираль может символизировать природу, бесконечность или культурное богатство, ассоциируясь с идеей роста и гармонии.</p>
+
+                <p>Рядом с символом размещено слово "Крым", написанное в изящном, слегка наклонном шрифте с плавными завитками. Буквы выполнены в насыщенном красном цвете, что придает тексту живость и эмоциональность, подчеркивая связь с регионом. Под основным словом идет подпись "жемчужина мира", выполненная более мелким шрифтом в мягком голубом оттенке. Этот слоган, написанный в спокойном и утонченном стиле, контрастирует с яркостью основного текста и символа, добавляя нотку изысканности и подчеркивая уникальность Крыма как драгоценного места.</p>
+
+                <p>В целом, логотип выглядит как гармоничное сочетание ярких цветов и плавных линий, что отражает природную красоту, культурное наследие и привлекательность региона. Многоцветная спираль и радужная палитра делают дизайн запоминающимся и универсальным, идеально подходящим для туристических или промоушн-кампаний, где акцент делается на Крыме как на уникальной жемчужине, сияющей на мировой карте.</p>
+            </div>
+        </div>
+
+        <div class="rating-section">
+            <h2>Средняя оценка</h2>
+            <div class="average-rating" id="average-stars">★★★★★</div>
+            <div class="rating-value" id="average-value">0.0</div>
+            <div class="rating-count" id="rating-count">(0 оценок)</div>
+        </div>
+
+        <div class="review-form">
+            <h2>Оставить отзыв и оценку</h2>
+            <form id="reviewForm">
+                <div class="form-group">
+                    <label for="reviewer-name">Ваше имя:</label>
+                    <input type="text" id="reviewer-name" name="name" required placeholder="Введите ваше имя">
+                </div>
+                
+                <div class="form-group">
+                    <label>Ваша оценка:</label>
+                    <div class="star-rating">
+                        <span class="star" onclick="setRating(1)" data-rating="1">☆</span>
+                        <span class="star" onclick="setRating(2)" data-rating="2">☆</span>
+                        <span class="star" onclick="setRating(3)" data-rating="3">☆</span>
+                        <span class="star" onclick="setRating(4)" data-rating="4">☆</span>
+                        <span class="star" onclick="setRating(5)" data-rating="5">☆</span>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="review-text">Ваш отзыв:</label>
+                    <textarea id="review-text" name="comment" required maxlength="5000" placeholder="Поделитесь вашим мнением о логотипе..."></textarea>
+                    <div class="char-count" id="char-count">0/5000 символов</div>
+                </div>
+                
+                <button type="submit">Отправить отзыв</button>
+            </form>
+        </div>
+
+        <div class="reviews-container">
+            <h2>Отзывы пользователей</h2>
+            <div id="reviews-list">
+                <!-- Отзывы будут загружаться здесь -->
+            </div>
+        </div>
+    </div>
+
+    <div id="admin-panel">
+        <div class="admin-header">
+            <h2>Админ-панель (Логотип 1)</h2>
+            <button class="admin-close-btn" onclick="hideAdminPanel()">✖ Закрыть</button>
+        </div>
+        
+        <div id="admin-reviews-list">
+            <!-- Отзывы для админа будут здесь -->
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+    <script>
+    // Конфигурация Supabase
+    const supabaseUrl = 'https://fdwdfyifbvoqzknpjmby.supabase.co'
+    const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZkd2RmeWlmYnZvcXprbnBqbWJ5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTYzMzIwOTcsImV4cCI6MjA3MTkwODA5N30.y94t93awxRqsrNkUVZhjyhEbVPOopAS2e5hBsymecn8'
+
+    const logoId = 3; // ID логотипа
+    let currentRating = 0;
+    let supabase;
+
+    console.log('Supabase подключен для логотипа', logoId);
+
+    // ===== АДМИН-ПАНЕЛЬ =====
+    async function showAdminPanel() {
+        const password = prompt('Введите пароль админа:');
+        if (password === '1') {
+            document.getElementById('admin-panel').style.display = 'block';
+            await loadAdminReviews();
+        } else if (password !== null) {
+            alert('Неверный пароль');
+        }
+    }
+
+    function hideAdminPanel() {
+        document.getElementById('admin-panel').style.display = 'none';
+    }
+
+    async function loadAdminReviews() {
+        try {
+            const adminList = document.getElementById('admin-reviews-list');
+            adminList.innerHTML = '<p style="text-align: center; color: #666; padding: 20px;">Загрузка отзывов...</p>';
+            
+            const { data: reviews, error } = await supabase
+                .from('reviews')
+                .select('*')
+                .eq('logo_id', logoId)
+                .order('created_at', { ascending: false });
+            
+            if (error) throw error;
+            
+            adminList.innerHTML = '';
+            
+            if (reviews.length === 0) {
+                adminList.innerHTML = '<p style="text-align: center; color: #666; padding: 20px;">Нет отзывов для управления</p>';
+                return;
+            }
+            
+            reviews.forEach(review => {
+                const reviewElement = document.createElement('div');
+                reviewElement.className = 'admin-review-item';
+                
+                const date = new Date(review.created_at).toLocaleDateString('ru-RU', {
+                    year: 'numeric', month: 'long', day: 'numeric',
+                    hour: '2-digit', minute: '2-digit'
+                });
+                
+                reviewElement.innerHTML = `
+                    <div class="admin-review-header">
+                        <div class="admin-review-info">
+                            <div class="admin-review-name">${review.name}</div>
+                            <div class="admin-review-meta">ID: ${review.id} • Логотип: ${review.logo_id}</div>
+                            <div class="admin-review-meta">${date}</div>
+                            <div style="color: #FFD772; font-size: 18px; margin-top: 5px;">
+                                ${'★'.repeat(review.rating)}${'☆'.repeat(5 - review.rating)}
+                            </div>
+                        </div>
+                        <button onclick="deleteReview(${review.id})" style="background: #ff4444; color: white; border: none; padding: 8px 15px; border-radius: 6px; cursor: pointer; font-weight: 600;">
+                            Удалить
+                        </button>
+                    </div>
+                    <div class="admin-review-comment">
+                        ${review.comment}
+                    </div>
+                `;
+                
+                adminList.appendChild(reviewElement);
+            });
+            
+        } catch (error) {
+            console.error('Ошибка загрузки админ-панели:', error);
+            adminList.innerHTML = '<p style="text-align: center; color: #ff0000; padding: 20px;">Ошибка загрузки отзывов</p>';
+        }
+    }
+
+    async function deleteReview(reviewId) {
+        if (!confirm('Вы уверены, что хотите удалить этот отзыв?')) {
+            return;
+        }
+        
+        try {
+            const { error } = await supabase
+                .from('reviews')
+                .delete()
+                .eq('id', reviewId);
+            
+            if (error) throw error;
+            
+            // Обновляем все данные после удаления
+            await Promise.all([
+                loadRating(),
+                loadReviews(),
+                loadAdminReviews()
+            ]);
+            
+            // Показываем уведомление об успешном удалении
+            showNotification('Отзыв успешно удален!', 'success');
+            
+        } catch (error) {
+            console.error('Ошибка удаления:', error);
+            showNotification('Ошибка при удалении отзыва', 'error');
+        }
+    }
+
+    // Функция для показа уведомлений
+    function showNotification(message, type = 'info') {
+        // Создаем элемент уведомления
+        const notification = document.createElement('div');
+        notification.style.position = 'fixed';
+        notification.style.top = '20px';
+        notification.style.right = '20px';
+        notification.style.padding = '15px 20px';
+        notification.style.borderRadius = '8px';
+        notification.style.color = 'white';
+        notification.style.fontWeight = '600';
+        notification.style.zIndex = '10000';
+        notification.style.boxShadow = '0 4px 15px rgba(0,0,0,0.2)';
+        notification.style.transform = 'translateX(100px)';
+        notification.style.opacity = '0';
+        notification.style.transition = 'all 0.3s ease';
+        
+        // Устанавливаем цвет в зависимости от типа
+        if (type === 'success') {
+            notification.style.background = '#4CAF50';
+        } else if (type === 'error') {
+            notification.style.background = '#f44336';
+        } else {
+            notification.style.background = '#2196F3';
+        }
+        
+        notification.textContent = message;
+        document.body.appendChild(notification);
+        
+        // Анимация появления
+        setTimeout(() => {
+            notification.style.transform = 'translateX(0)';
+            notification.style.opacity = '1';
+        }, 10);
+        
+        // Автоматическое скрытие через 3 секунды
+        setTimeout(() => {
+            notification.style.transform = 'translateX(100px)';
+            notification.style.opacity = '0';
+            
+            // Удаляем элемент после анимации
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.parentNode.removeChild(notification);
+                }
+            }, 300);
+        }, 3000);
+    }
+
+    // Инициализация
+    document.addEventListener('DOMContentLoaded', function() {
+        initializeSupabase();
+        loadRating();
+        loadReviews();
+    });
+
+    // Инициализация Supabase
+    function initializeSupabase() {
+        if (window.supabase) {
+            supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
+            console.log('Supabase подключен для логотипа', logoId);
+        } else {
+            console.error('Supabase library not loaded');
+        }
+    }
+
+    // Установка оценки
+    function setRating(rating) {
+        currentRating = rating;
+        const stars = document.querySelectorAll('.star');
+        stars.forEach((star, index) => {
+            if (index < rating) {
+                star.textContent = '★';
+                star.classList.add('active');
+            } else {
+                star.textContent = '☆';
+                star.classList.remove('active');
+            }
+        });
+    }
+
+    // Загрузка рейтинга
+    async function loadRating() {
+        try {
+            const { data, error } = await supabase
+                .from('reviews')
+                .select('rating')
+                .eq('logo_id', logoId);
+            
+            if (error) throw error;
+            
+            if (data && data.length > 0) {
+                const total = data.reduce((sum, item) => sum + item.rating, 0);
+                const average = total / data.length;
+                updateRatingDisplay(average, data.length);
+            } else {
+                updateRatingDisplay(0, 0);
+            }
+        } catch (error) {
+            console.error('Ошибка загрузки рейтинга:', error);
+        }
+    }
+
+    // Загрузка отзывов
+    async function loadReviews() {
+        try {
+            const { data: reviews, error } = await supabase
+                .from('reviews')
+                .select('*')
+                .eq('logo_id', logoId)
+                .order('created_at', { ascending: false });
+            
+            if (error) throw error;
+            
+            displayReviews(reviews || []);
+            
+        } catch (error) {
+            console.error('Ошибка загрузки отзывов:', error);
+            const reviewsList = document.getElementById('reviews-list');
+            if (reviewsList) {
+                reviewsList.innerHTML = '<div class="no-reviews">Ошибка загрузки отзывов</div>';
+            }
+        }
+    }
+
+    // Отображение отзывов
+    function displayReviews(reviews) {
+        const reviewsList = document.getElementById('reviews-list');
+        if (!reviewsList) return;
+        
+        reviewsList.innerHTML = '';
+        
+        if (reviews.length === 0) {
+            reviewsList.innerHTML = '<div class="no-reviews">Пока нет отзывов. Будьте первым!</div>';
+            return;
+        }
+        
+        reviews.forEach((review, index) => {
+            const reviewElement = document.createElement('div');
+            reviewElement.className = 'review-item';
+            reviewElement.style.animationDelay = `${index * 0.1}s`;
+            
+            const date = new Date(review.created_at).toLocaleDateString('ru-RU', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+            
+            reviewElement.innerHTML = `
+                <div class="review-header">
+                    <span class="reviewer-name">${review.name}</span>
+                    <div>
+                        <span class="review-rating">${'★'.repeat(review.rating)}${'☆'.repeat(5 - review.rating)}</span>
+                        <span class="review-date">${date}</span>
+                    </div>
+                </div>
+                <div class="review-content">${review.comment}</div>
+            `;
+            
+            reviewsList.appendChild(reviewElement);
+        });
+    }
+
+    // Обновление отображения рейтинга
+    // Обновление отображения рейтинга с CSS классами
+    function updateRatingDisplay(average, count) {
+        const starsContainer = document.getElementById('average-stars');
+        starsContainer.innerHTML = ''; // Очищаем контейнер
+        
+        for (let i = 1; i <= 5; i++) {
+            const star = document.createElement('span');
+            star.className = 'rating-star';
+            
+            if (i <= Math.floor(average)) {
+                // Полная звезда
+                star.innerHTML = '★';
+                star.style.color = '#FFD772';
+            } else if (i === Math.ceil(average) && average % 1 > 0) {
+                // Частичная звезда (градиент)
+                star.innerHTML = '★';
+                const percentage = (average % 1) * 100;
+                star.style.background = `linear-gradient(90deg, #FFD772 ${percentage}%, #e0e0e0 ${percentage}%)`;
+                star.style.backgroundClip = 'text';
+                star.style.webkitBackgroundClip = 'text';
+                star.style.color = 'transparent';
+            } else {
+                // Пустая звезда
+                star.innerHTML = '★';
+                star.style.color = '#e0e0e0';
+            }
+            
+            starsContainer.appendChild(star);
+        }
+        
+        document.getElementById('average-value').textContent = average.toFixed(1);
+        document.getElementById('rating-count').textContent = `(${count} ${getRatingWord(count)})`;
+    }
+
+    // Правильное склонение слова "оценка"
+    function getRatingWord(count) {
+        if (count % 10 === 1 && count % 100 !== 11) return 'оценка';
+        if ([2, 3, 4].includes(count % 10) && ![12, 13, 14].includes(count % 100)) return 'оценки';
+        return 'оценок';
+    }
+
+    // Обработчик отправки формы
+    document.getElementById('reviewForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const name = document.getElementById('reviewer-name').value.trim();
+        const comment = document.getElementById('review-text').value.trim();
+        
+        if (!name || !comment || currentRating === 0) {
+            showNotification('Пожалуйста, заполните все поля и поставьте оценку', 'error');
+            return;
+        }
+        
+        const submitBtn = this.querySelector('button[type="submit"]');
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = 'Отправка...';
+        submitBtn.disabled = true;
+        
+        try {
+            const { data, error } = await supabase
+                .from('reviews')
+                .insert([
+                    {
+                        logo_id: logoId,
+                        name: name,
+                        comment: comment,
+                        rating: currentRating
+                    }
+                ])
+                .select();
+            
+            if (error) throw error;
+            
+            // Очищаем форму
+            document.getElementById('reviewForm').reset();
+            document.getElementById('char-count').textContent = '0/5000 символов';
+            currentRating = 0;
+            
+            // Сбрасываем звезды
+            document.querySelectorAll('.star').forEach(star => {
+                star.textContent = '☆';
+                star.classList.remove('active');
+            });
+            
+            // Обновляем данные
+            await loadRating();
+            await loadReviews();
+            
+            showNotification('Спасибо за ваш отзыв!', 'success');
+            
+        } catch (error) {
+            console.error('Ошибка отправки отзыва:', error);
+            showNotification('Ошибка при отправке отзыва', 'error');
+        } finally {
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+        }
+    });
+
+    // Счетчик символов
+    document.getElementById('review-text').addEventListener('input', function() {
+        const length = this.value.length;
+        const counter = document.getElementById('char-count');
+        if (counter) {
+            counter.textContent = `${length}/5000 символов`;
+            counter.style.color = length > 4500 ? '#ff0000' : length > 4000 ? '#ff6600' : '#666';
+        }
+    });
+
+    // Сделаем функции глобальными
+    window.showAdminPanel = showAdminPanel;
+    window.hideAdminPanel = hideAdminPanel;
+    window.deleteReview = deleteReview;
+
+    // Активация админ-панели по комбинации клавиш
+    document.addEventListener('keydown', function(e) {
+        if (e.ctrlKey && e.altKey && e.key === 'a') {
+            e.preventDefault();
+            showAdminPanel();
+        }
+    });
+
+    console.log('Админ-панель: Ctrl+Alt+A');
+    </script>
+</body>
+</html>
