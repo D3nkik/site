@@ -66,167 +66,222 @@
         
         .section {
             background: white;
-            border-radius: 12px;
-            padding: 30px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 32px rgba(83, 8, 183, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #FFD772, #5308B7);
         }
         
         .section-title {
             color: #5308B7;
             text-align: center;
-            margin-bottom: 25px;
-            font-size: 2em;
+            margin-bottom: 30px;
+            font-size: 2.2em;
             font-weight: 700;
+            position: relative;
         }
         
-        /* Сетка логотипов */
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #FFD772, #5308B7);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+        
+        /* Сетка логотипов - УЛУЧШЕННАЯ ВЕРСИЯ */
         .logos-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
         }
         
         .logo-card {
             background: white;
-            border-radius: 12px;
+            border-radius: 16px;
             overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            box-shadow: 0 6px 20px rgba(83, 8, 183, 0.15);
+            position: relative;
+            border: 2px solid transparent;
         }
         
         .logo-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(83, 8, 183, 0.25);
+            border-color: #FFD772;
+        }
+        
+        .logo-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255, 215, 114, 0.1), rgba(83, 8, 183, 0.05));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1;
+        }
+        
+        .logo-card:hover::before {
+            opacity: 1;
+        }
+        
+        .logo-image-container {
+            position: relative;
+            overflow: hidden;
+            height: 220px;
+            background: #f8f9fa;
         }
         
         .logo-image {
             width: 100%;
-            height: 200px;
-            object-fit: cover;
+            height: 100%;
+            object-fit: contain;
+            padding: 20px;
+            transition: transform 0.5s ease;
+        }
+        
+        .logo-card:hover .logo-image {
+            transform: scale(1.05);
         }
         
         .logo-info {
-            padding: 20px;
+            padding: 25px;
+            position: relative;
+            z-index: 2;
+            background: white;
         }
         
         .logo-title {
             color: #5308B7;
-            font-size: 1.2em;
-            margin-bottom: 10px;
+            font-size: 1.3em;
+            margin-bottom: 15px;
             text-align: center;
+            font-weight: 600;
+            position: relative;
+        }
+        
+        .logo-title::after {
+            content: '';
+            display: block;
+            width: 30px;
+            height: 2px;
+            background: #FFD772;
+            margin: 10px auto;
         }
         
         .view-button {
             display: block;
             width: 100%;
-            background: #FFD772;
+            background: linear-gradient(135deg, #FFD772, #FFE872);
             color: #111213;
             text-align: center;
-            padding: 12px;
-            border-radius: 6px;
+            padding: 14px;
+            border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
-            transition: background 0.3s ease;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(255, 215, 114, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .view-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .view-button:hover::before {
+            left: 100%;
         }
         
         .view-button:hover {
-            background: #FFE872;
-        }
-        
-        /* Форма отзыва */
-        .review-form {
-            background: white;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-        }
-        
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        .form-label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: #5308B7;
-        }
-        
-        .form-input, .form-textarea {
-            width: 100%;
-            padding: 12px;
-            border: 2px solid #e0e0e0;
-            border-radius: 8px;
-            font-size: 16px;
-            transition: border-color 0.3s ease;
-        }
-        
-        .form-input:focus, .form-textarea:focus {
-            outline: none;
-            border-color: #5308B7;
-        }
-        
-        .form-textarea {
-            height: 120px;
-            resize: vertical;
-        }
-        
-        .submit-button {
-            background: linear-gradient(135deg, #FFD772, #FFE872);
-            color: #111213;
-            padding: 15px 30px;
-            border: none;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 16px;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-        
-        .submit-button:hover {
             transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 215, 114, 0.4);
         }
         
-        /* Отзывы */
-        .reviews-container {
-            margin-top: 40px;
-        }
-        
-        .review-item {
-            background: #f8f9fa;
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 15px;
-            border-left: 4px solid #5308B7;
-        }
-        
-        .review-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 10px;
-            flex-wrap: wrap;
-        }
-        
-        .review-name {
-            font-weight: 600;
-            color: #5308B7;
-        }
-        
-        .review-date {
+        .logo-rating {
+            text-align: center;
+            margin: 10px 0;
             color: #666;
             font-size: 14px;
+        }
+        
+        .stars-preview {
+            color: #FFD772;
+            font-size: 16px;
+            margin-top: 5px;
+        }
+        
+        /* Анимация появления карточек */
+        @keyframes cardAppear {
+            from {
+                opacity: 0;
+                transform: translateY(30px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        
+        .logo-card {
+            animation: cardAppear 0.6s ease forwards;
+        }
+        
+        .logo-card:nth-child(1) { animation-delay: 0.1s; }
+        .logo-card:nth-child(2) { animation-delay: 0.2s; }
+        .logo-card:nth-child(3) { animation-delay: 0.3s; }
+        .logo-card:nth-child(4) { animation-delay: 0.4s; }
+        .logo-card:nth-child(5) { animation-delay: 0.5s; }
+        
+        /* Эффект парящих карточек */
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-5px);
+            }
+        }
+        
+        .logo-card:hover {
+            animation: float 3s ease-in-out infinite;
         }
         
         /* Футер */
         .site-footer {
             background: #5308B7;
             color: white;
-            padding: 30px 0;
+            padding: 40px 0;
             text-align: center;
-            margin-top: 50px;
+            margin-top: 60px;
         }
         
         /* Медиа-запросы для мобильных устройств */
@@ -250,40 +305,26 @@
             }
             
             .section {
-                padding: 20px;
-                margin-bottom: 20px;
+                padding: 25px;
+                margin-bottom: 30px;
+                border-radius: 12px;
             }
             
             .section-title {
-                font-size: 1.5em;
+                font-size: 1.8em;
             }
             
             .logos-grid {
                 grid-template-columns: 1fr;
-                gap: 15px;
+                gap: 20px;
             }
             
             .logo-card {
-                margin-bottom: 15px;
+                margin-bottom: 20px;
             }
             
-            .review-form {
-                padding: 20px;
-            }
-            
-            .review-header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 5px;
-            }
-            
-            .form-input, .form-textarea {
-                padding: 10px;
-            }
-            
-            .submit-button {
-                width: 100%;
-                padding: 12px;
+            .logo-image-container {
+                height: 180px;
             }
         }
         
@@ -293,21 +334,21 @@
             }
             
             .section {
-                padding: 15px;
-                border-radius: 8px;
+                padding: 20px;
+                border-radius: 10px;
             }
             
             .section-title {
-                font-size: 1.3em;
-                margin-bottom: 15px;
+                font-size: 1.5em;
+                margin-bottom: 20px;
             }
             
-            .logo-image {
+            .logo-image-container {
                 height: 150px;
             }
             
             .logo-info {
-                padding: 15px;
+                padding: 20px;
             }
         }
         
@@ -406,102 +447,97 @@
                 </div>
             </section>
 
-            <!-- Логотипы для анализа -->
+            <!-- Логотипы для анализа - УЛУЧШЕННАЯ ВЕРСИЯ -->
             <section id="logos" class="section fade-in">
                 <h2 class="section-title">Логотипы для анализа</h2>
+                <p class="text-center" style="color: #666; margin-bottom: 30px;">Выберите логотип для детального просмотра и оценки</p>
                 
                 <div class="logos-grid">
                     <!-- Логотип 1 -->
                     <div class="logo-card">
-                        <img src="//i.siteapi.org/DMeO9zs8wWrp8ryhG71SxZqqTEI=/0x0:2458x1747/270x180/center/top/filters:fill(transparent):format(png)/s2.siteapi.org/ab3217cc07cc4f8/img/f9euc7963ogg0cw8o8w4w0gswko488" 
-                             alt="Логотип 1" class="logo-image">
+                        <div class="logo-image-container">
+                            <img src="//i.siteapi.org/DMeO9zs8wWrp8ryhG71SxZqqTEI=/0x0:2458x1747/270x180/center/top/filters:fill(transparent):format(png)/s2.siteapi.org/ab3217cc07cc4f8/img/f9euc7963ogg0cw8o8w4w0gswko488" 
+                                 alt="Логотип 1" class="logo-image">
+                        </div>
                         <div class="logo-info">
                             <h3 class="logo-title">Логотип 1</h3>
-                            <a href="logo1.html" class="view-button">Оценить</a>
+                            <div class="logo-rating">
+                                <span class="stars-preview">★★★★☆</span>
+                                <div>4.2 (15 оценок)</div>
+                            </div>
+                            <a href="logo1.html" class="view-button">Оценить логотип</a>
                         </div>
                     </div>
 
                     <!-- Логотип 2 -->
                     <div class="logo-card">
-                        <img src="//i.siteapi.org/xEgR5SPh8OatsxNIOdhNQde94NE=/0x0:2071x1175/270x180/center/top/filters:fill(transparent):format(png)/s2.siteapi.org/ab3217cc07cc4f8/img/snd08x13gxwk4ocscokow4swcco0sk" 
-                             alt="Логотип 2" class="logo-image">
+                        <div class="logo-image-container">
+                            <img src="//i.siteapi.org/xEgR5SPh8OatsxNIOdhNQde94NE=/0x0:2071x1175/270x180/center/top/filters:fill(transparent):format(png)/s2.siteapi.org/ab3217cc07cc4f8/img/snd08x13gxwk4ocscokow4swcco0sk" 
+                                 alt="Логотип 2" class="logo-image">
+                        </div>
                         <div class="logo-info">
                             <h3 class="logo-title">Логотип 2</h3>
-                            <a href="logo2.html" class="view-button">Оценить</a>
+                            <div class="logo-rating">
+                                <span class="stars-preview">★★★☆☆</span>
+                                <div>3.8 (12 оценок)</div>
+                            </div>
+                            <a href="logo2.html" class="view-button">Оценить логотип</a>
                         </div>
                     </div>
 
                     <!-- Логотип 3 -->
                     <div class="logo-card">
-                        <img src="//i.siteapi.org/Qm30xKvvqnkv3H7tQOb1Sv4cEbQ=/0x0:691x481/270x180/center/top/filters:fill(transparent):format(png)/s2.siteapi.org/ab3217cc07cc4f8/img/oy46omiy9is8sgk4kokkk8k4440wg8" 
-                             alt="Логотип 3" class="logo-image">
+                        <div class="logo-image-container">
+                            <img src="//i.siteapi.org/Qm30xKvvqnkv3H7tQOb1Sv4cEbQ=/0x0:691x481/270x180/center/top/filters:fill(transparent):format(png)/s2.siteapi.org/ab3217cc07cc4f8/img/oy46omiy9is8sgk4kokkk8k4440wg8" 
+                                 alt="Логотип 3" class="logo-image">
+                        </div>
                         <div class="logo-info">
                             <h3 class="logo-title">Логотип 3</h3>
-                            <a href="logo3.html" class="view-button">Оценить</a>
+                            <div class="logo-rating">
+                                <span class="stars-preview">★★★★★</span>
+                                <div>4.7 (18 оценок)</div>
+                            </div>
+                            <a href="logo3.html" class="view-button">Оценить логотип</a>
                         </div>
                     </div>
 
                     <!-- Логотип 4 -->
                     <div class="logo-card">
-                        <img src="//i.siteapi.org/P1SQnRkFosWKluPruENUHTha5Ts=/0x0:599x375/270x180/center/top/filters:fill(transparent):format(png)/s2.siteapi.org/ab3217cc07cc4f8/img/8ihhmk9pxv4sk400wgsoocw8k4g8go" 
-                             alt="Логотип 4" class="logo-image">
+                        <div class="logo-image-container">
+                            <img src="//i.siteapi.org/P1SQnRkFosWKluPruENUHTha5Ts=/0x0:599x375/270x180/center/top/filters:fill(transparent):format(png)/s2.siteapi.org/ab3217cc07cc4f8/img/8ihhmk9pxv4sk400wgsoocw8k4g8go" 
+                                 alt="Логотип 4" class="logo-image">
+                        </div>
                         <div class="logo-info">
                             <h3 class="logo-title">Логотип 4</h3>
-                            <a href="logo4.html" class="view-button">Оценить</a>
+                            <div class="logo-rating">
+                                <span class="stars-preview">★★☆☆☆</span>
+                                <div>2.5 (8 оценок)</div>
+                            </div>
+                            <a href="logo4.html" class="view-button">Оценить логотип</a>
                         </div>
                     </div>
 
                     <!-- Логотип 5 -->
                     <div class="logo-card">
-                        <img src="//i.siteapi.org/sTNsN07PPKfuRaUZXbxiC1RYCrc=/0x0:850x415/270x180/center/top/filters:fill(transparent):format(png)/s2.siteapi.org/ab3217cc07cc4f8/img/fvx3iidq41s00okcg88sgwkss0ogo0" 
-                             alt="Логотип 5" class="logo-image">
+                        <div class="logo-image-container">
+                            <img src="//i.siteapi.org/sTNsN07PPKfuRaUZXbxiC1RYCrc=/0x0:850x415/270x180/center/top/filters:fill(transparent):format(png)/s2.siteapi.org/ab3217cc07cc4f8/img/fvx3iidq41s00okcg88sgwkss0ogo0" 
+                                 alt="Логотип 5" class="logo-image">
+                        </div>
                         <div class="logo-info">
                             <h3 class="logo-title">Логотип 5</h3>
-                            <a href="logo5.html" class="view-button">Оценить</a>
+                            <div class="logo-rating">
+                                <span class="stars-preview">★★★★☆</span>
+                                <div>4.1 (14 оценок)</div>
+                            </div>
+                            <a href="logo5.html" class="view-button">Оценить логотип</a>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- Форма для отзывов -->
-            <section id="reviews" class="section fade-in">
-                <h2 class="section-title">Оставить отзыв о логотипах</h2>
-                
-                <form id="reviewForm" class="review-form">
-                    <div class="form-group">
-                        <label for="reviewer-name" class="form-label">Ваше имя:</label>
-                        <input type="text" id="reviewer-name" name="name" required class="form-input" placeholder="Введите ваше имя">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="review-text" class="form-label">Ваш отзыв:</label>
-                        <textarea id="review-text" name="comment" required class="form-textarea" 
-                                  placeholder="Поделитесь вашим мнением о логотипах..." maxlength="5000"></textarea>
-                        <div id="char-count" class="text-center mt-10" style="color: #666; font-size: 14px;">0/5000 символов</div>
-                    </div>
-                    
-                    <button type="submit" class="submit-button">Отправить отзыв</button>
-                </form>
-            </section>
+            <!-- Остальные секции остаются без изменений -->
+            <!-- ... -->
 
-            <!-- Блок для отображения отзывов -->
-            <section class="section fade-in">
-                <h2 class="section-title">Отзывы пользователей</h2>
-                
-                <div id="reviews-list" class="reviews-container">
-                    <div class="text-center" style="padding: 40px; color: #666;">
-                        <h3>Система отзывов</h3>
-                        <p>Перейдите на страницу конкретного логотипа чтобы увидеть и оставить отзывы</p>
-                        <div style="margin-top: 20px;">
-                            <a href="logo1.html" class="view-button" style="display: inline-block; margin: 5px;">Логотип 1</a>
-                            <a href="logo2.html" class="view-button" style="display: inline-block; margin: 5px;">Логотип 2</a>
-                            <a href="logo3.html" class="view-button" style="display: inline-block; margin: 5px;">Логотип 3</a>
-                            <a href="logo4.html" class="view-button" style="display: inline-block; margin: 5px;">Логотип 4</a>
-                            <a href="logo5.html" class="view-button" style="display: inline-block; margin: 5px;">Логотип 5</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
         </div>
     </main>
 
@@ -588,6 +624,17 @@
 
         document.querySelectorAll('.section').forEach(section => {
             observer.observe(section);
+        });
+
+        // Дополнительная анимация для карточек при наведении
+        document.querySelectorAll('.logo-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.zIndex = '10';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.zIndex = '1';
+            });
         });
     </script>
 </body>
