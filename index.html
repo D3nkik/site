@@ -239,6 +239,13 @@
             margin-top: 5px;
         }
         
+        .no-ratings {
+            color: #999;
+            font-style: italic;
+            text-align: center;
+            margin: 15px 0;
+        }
+        
         /* Анимация появления карточек */
         @keyframes cardAppear {
             from {
@@ -261,18 +268,11 @@
         .logo-card:nth-child(4) { animation-delay: 0.4s; }
         .logo-card:nth-child(5) { animation-delay: 0.5s; }
         
-        /* Эффект парящих карточек */
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-5px);
-            }
-        }
-        
-        .logo-card:hover {
-            animation: float 3s ease-in-out infinite;
+        /* Плавная анимация при уходе курсора */
+        .logo-card {
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                        box-shadow 0.4s ease,
+                        border-color 0.3s ease;
         }
         
         /* Футер */
@@ -462,8 +462,7 @@
                         <div class="logo-info">
                             <h3 class="logo-title">Логотип 1</h3>
                             <div class="logo-rating">
-                                <span class="stars-preview">★★★★☆</span>
-                                <div>4.2 (15 оценок)</div>
+                                <div class="no-ratings">Пока нет оценок</div>
                             </div>
                             <a href="logo1.html" class="view-button">Оценить логотип</a>
                         </div>
@@ -478,8 +477,7 @@
                         <div class="logo-info">
                             <h3 class="logo-title">Логотип 2</h3>
                             <div class="logo-rating">
-                                <span class="stars-preview">★★★☆☆</span>
-                                <div>3.8 (12 оценок)</div>
+                                <div class="no-ratings">Пока нет оценок</div>
                             </div>
                             <a href="logo2.html" class="view-button">Оценить логотип</a>
                         </div>
@@ -494,8 +492,7 @@
                         <div class="logo-info">
                             <h3 class="logo-title">Логотип 3</h3>
                             <div class="logo-rating">
-                                <span class="stars-preview">★★★★★</span>
-                                <div>4.7 (18 оценок)</div>
+                                <div class="no-ratings">Пока нет оценок</div>
                             </div>
                             <a href="logo3.html" class="view-button">Оценить логотип</a>
                         </div>
@@ -510,8 +507,7 @@
                         <div class="logo-info">
                             <h3 class="logo-title">Логотип 4</h3>
                             <div class="logo-rating">
-                                <span class="stars-preview">★★☆☆☆</span>
-                                <div>2.5 (8 оценок)</div>
+                                <div class="no-ratings">Пока нет оценок</div>
                             </div>
                             <a href="logo4.html" class="view-button">Оценить логотип</a>
                         </div>
@@ -526,8 +522,7 @@
                         <div class="logo-info">
                             <h3 class="logo-title">Логотип 5</h3>
                             <div class="logo-rating">
-                                <span class="stars-preview">★★★★☆</span>
-                                <div>4.1 (14 оценок)</div>
+                                <div class="no-ratings">Пока нет оценок</div>
                             </div>
                             <a href="logo5.html" class="view-button">Оценить логотип</a>
                         </div>
@@ -544,7 +539,7 @@
     <!-- Футер -->
     <footer class="site-footer">
         <div class="container">
-            <p>&copy; 2025 Брендинг территорий. Все права защищены.</p>
+            <p>&copy; 2024 Брендинг территорий. Все права защищены.</p>
         </div>
     </footer>
 
