@@ -328,7 +328,15 @@
 </div>
 
 <script>
-    
+
+// Конфигурация Supabase
+const supabaseUrl = 'https://fdwdfyifbvoqzknpjmby.supabase.co'
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZkd2RmeWlmYnZvcXprbnBqbWJ5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTYzMzIwOTcsImV4cCI6MjA3MTkwODA5N30.y94t93awxRqsrNkUVZhjyhEbVPOopAS2e5hBsymecn8'
+
+const logoId = 1; // ID логотипа
+let currentRating = 0;
+let supabase;
+
 console.log('Supabase подключен для логотипа', logoId);
 
 // ===== АДМИН-ПАНЕЛЬ =====
@@ -431,13 +439,7 @@ async function deleteReview(reviewId) {
     }
 }
 
-// Конфигурация Supabase
-const supabaseUrl = 'https://fdwdfyifbvoqzknpjmby.supabase.co'
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZkd2RmeWlmYnZvcXprbnBqbWJ5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTYzMzIwOTcsImV4cCI6MjA3MTkwODA5N30.y94t93awxRqsrNkUVZhjyhEbVPOopAS2e5hBsymecn8'
 
-const logoId = 1; // ID логотипа
-let currentRating = 0;
-let supabase;
 
 // Инициализация
 document.addEventListener('DOMContentLoaded', function() {
