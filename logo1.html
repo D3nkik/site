@@ -314,7 +314,123 @@
     </div>
 
     <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+
+
+<div id="admin-panel" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 20px rgba(0,0,0,0.3); z-index: 1000; width: 90%; max-width: 800px; max-height: 80vh; overflow-y: auto;">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+        <h2 style="color: #5308B7; margin: 0;">Админ-панель (Логотип 1)</h2>
+        <button onclick="hideAdminPanel()" style="background: #ff4444; color: white; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer;">✖ Закрыть</button>
+    </div>
+    
+    <div id="admin-reviews-list">
+        <!-- Отзывы для админа будут здесь -->
+    </div>
+</div>
+
 <script>
+    
+console.log('Supabase подключен для логотипа', logoId);
+
+// ===== АДМИН-ПАНЕЛЬ =====
+async function showAdminPanel() {
+    const password = prompt('Введите пароль админа:');
+    if (password === '1') {
+        document.getElementById('admin-panel').style.display = 'block';
+        await loadAdminReviews();
+    } else if (password !== null) {
+        alert('Неверный пароль');
+    }
+}
+
+function hideAdminPanel() {
+    document.getElementById('admin-panel').style.display = 'none';
+}
+
+async function loadAdminReviews() {
+    try {
+        const adminList = document.getElementById('admin-reviews-list');
+        adminList.innerHTML = '<p style="text-align: center; color: #666;">Загрузка...</p>';
+        
+        const { data: reviews, error } = await supabase
+            .from('reviews')
+            .select('*')
+            .eq('logo_id', logoId)  // ТОЛЬКО отзывы этого логотипа!
+            .order('created_at', { ascending: false });
+        
+        if (error) throw error;
+        
+        adminList.innerHTML = '';
+        
+        if (reviews.length === 0) {
+            adminList.innerHTML = '<p style="text-align: center; color: #666;">Нет отзывов для управления</p>';
+            return;
+        }
+        
+        reviews.forEach(review => {
+            const reviewElement = document.createElement('div');
+            reviewElement.style.border = '1px solid #ddd';
+            reviewElement.style.borderRadius = '8px';
+            reviewElement.style.padding = '15px';
+            reviewElement.style.marginBottom = '15px';
+            reviewElement.style.background = '#f9f9f9';
+            
+            const date = new Date(review.created_at).toLocaleDateString('ru-RU', {
+                year: 'numeric', month: 'long', day: 'numeric',
+                hour: '2-digit', minute: '2-digit'
+            });
+            
+            reviewElement.innerHTML = `
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px;">
+                    <div>
+                        <div style="font-weight: bold; color: #5308B7;">${review.name}</div>
+                        <div style="color: #666; font-size: 12px;">ID: ${review.id}</div>
+                        <div style="color: #666; font-size: 12px;">Логотип: ${review.logo_id}</div>
+                        <div style="color: #666; font-size: 12px;">${date}</div>
+                    </div>
+                    <button onclick="deleteReview(${review.id})" style="background: #ff4444; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; font-size: 12px;">
+                        ❌ Удалить
+                    </button>
+                </div>
+                <div style="color: #FFD772; font-size: 18px; margin: 5px 0;">
+                    ${'★'.repeat(review.rating)}${'☆'.repeat(5 - review.rating)}
+                </div>
+                <div style="background: white; padding: 10px; border-radius: 4px; border-left: 3px solid #5308B7;">
+                    ${review.comment}
+                </div>
+            `;
+            
+            adminList.appendChild(reviewElement);
+        });
+        
+    } catch (error) {
+        console.error('Ошибка загрузки админ-панели:', error);
+        adminList.innerHTML = '<p style="text-align: center; color: #ff0000;">Ошибка загрузки</p>';
+    }
+}
+
+async function deleteReview(reviewId) {
+    if (!confirm('Вы уверены, что хотите удалить этот отзыв?')) {
+        return;
+    }
+    
+    try {
+        const { error } = await supabase
+            .from('reviews')
+            .delete()
+            .eq('id', reviewId);
+        
+        if (error) throw error;
+        
+        alert('Отзыв успешно удален!');
+        await loadReviews();          // Обновляем обычные отзывы
+        await loadAdminReviews();     // Обновляем админ-панель
+        
+    } catch (error) {
+        console.error('Ошибка удаления:', error);
+        alert('Ошибка при удалении отзыва');
+    }
+}
+
 // Конфигурация Supabase
 const supabaseUrl = 'https://fdwdfyifbvoqzknpjmby.supabase.co'
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZkd2RmeWlmYnZvcXprbnBqbWJ5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTYzMzIwOTcsImV4cCI6MjA3MTkwODA5N30.y94t93awxRqsrNkUVZhjyhEbVPOopAS2e5hBsymecn8'
@@ -383,7 +499,7 @@ async function loadReviews() {
         const { data: reviews, error } = await supabase
             .from('reviews')
             .select('*')
-            .eq('logo_id', logoId)
+            .eq('logo_id', logoId)  // ← ВАЖНО: только этот логотип!
             .order('created_at', { ascending: false });
         
         if (error) throw error;
@@ -533,6 +649,22 @@ document.getElementById('review-text').addEventListener('input', function() {
         counter.style.color = length > 4500 ? '#ff0000' : length > 4000 ? '#ff6600' : '#666';
     }
 });
+
+// Сделаем функции глобальными
+window.showAdminPanel = showAdminPanel;
+window.hideAdminPanel = hideAdminPanel;
+window.deleteReview = deleteReview;
+
+// Активация админ-панели по комбинации клавиш
+document.addEventListener('keydown', function(e) {
+    if (e.ctrlKey && e.altKey && e.key === 'a') {
+        e.preventDefault();
+        showAdminPanel();
+    }
+});
+
+console.log('Админ-панель: Ctrl+Alt+A');
+
 </script>
     
 </body>
