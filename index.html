@@ -231,6 +231,11 @@
             margin: 10px 0;
             color: #666;
             font-size: 14px;
+            min-height: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
         
         .stars-preview {
@@ -243,7 +248,11 @@
             color: #999;
             font-style: italic;
             text-align: center;
-            margin: 15px 0;
+        }
+        
+        .rating-text {
+            margin-top: 5px;
+            font-size: 12px;
         }
         
         /* Анимация появления карточек */
@@ -458,8 +467,6 @@
             border-left: 4px solid #FFD772 !important;
             background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%) !important;
         }
-
-
     </style>
 </head>
 <body>
@@ -473,6 +480,7 @@
                     </a>
                 </div>
                 
+                <button class="mobile-menu-toggle">☰</button>
                 
                 <nav class="header-nav">
                     <a href="#about">О компании</a>
@@ -502,7 +510,7 @@
             <section class="section fade-in">
                 <h2 class="section-title">Описание проекта</h2>
                 <div class="project-description">
-                    <p>Мы — команда, вдохновлённая созданием ярких и выразительных решений для брендов через дизайн. Наша компания стремится к тому, чтобы каждый бренд мог обрести визуальную идентичность, которая не только привлекает внимание, но и оставляет глубокий эмоциональный отклик.</p>
+                    <p>Мы — команда, вдохновлённая созданием ярких и выразительных решений для брендов через дизайн. Наша компании стремится к тому, чтобы каждый бренд мог обрести визуальную идентичность, которая не только привлекает внимание, но и оставляет глубокий эмоциональный отклик.</p>
                     
                     <p>Мы внимательно изучаем отзывы о дизайне логотипов, исследуя их стиль, восприятие и связь с культурными ценностями, опираясь на мнения дизайнеров и аудитории. Наша цель — помогать брендам, от стартапов до крупных компаний, создавать уникальные логотипы, которые вдохновляют и находят отклик у их аудитории.</p>
                     
@@ -591,10 +599,6 @@
                     </div>
                 </div>
             </section>
-
-            <!-- Остальные секции остаются без изменений -->
-            <!-- ... -->
-
         </div>
     </main>
 
@@ -609,18 +613,23 @@
 
     <!-- JavaScript -->
     <script>
-
-        // Мобильное меню
-        document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
-            document.querySelector('.header-nav').classList.toggle('active');
-        });
+        // Проверяем существование элемента перед добавлением обработчика
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        if (mobileMenuToggle) {
+            mobileMenuToggle.addEventListener('click', function() {
+                document.querySelector('.header-nav').classList.toggle('active');
+            });
+        }
 
         // Закрытие меню при клике на ссылку
-        document.querySelectorAll('.header-nav a').forEach(link => {
-            link.addEventListener('click', function() {
-                document.querySelector('.header-nav').classList.remove('active');
+        const headerNavLinks = document.querySelectorAll('.header-nav a');
+        if (headerNavLinks.length > 0) {
+            headerNavLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    document.querySelector('.header-nav').classList.remove('active');
+                });
             });
-        });
+        }
 
         // Плавная прокрутка
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -635,38 +644,6 @@
                 }
             });
         });
-
-        // Счетчик символов
-        const textarea = document.getElementById('review-text');
-        const counter = document.getElementById('char-count');
-        
-        if (textarea && counter) {
-            textarea.addEventListener('input', function() {
-                const length = this.value.length;
-                counter.textContent = `${length}/5000 символов`;
-                counter.style.color = length > 4500 ? '#ff0000' : length > 4000 ? '#ff6600' : '#666';
-            });
-        }
-
-        // Обработка формы
-        const form = document.getElementById('reviewForm');
-        if (form) {
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                const name = document.getElementById('reviewer-name').value.trim();
-                const comment = document.getElementById('review-text').value.trim();
-                
-                if (!name || !comment) {
-                    alert('Пожалуйста, заполните все поля');
-                    return;
-                }
-                
-                alert('Спасибо за ваш отзыв! На главной странице отзывы не сохраняются - перейдите на страницу конкретного логотипа.');
-                form.reset();
-                document.getElementById('char-count').textContent = '0/5000 символов';
-            });
-        }
 
         // Анимация при скролле
         const observerOptions = {
@@ -727,8 +704,11 @@
                             
                             ratingElement.innerHTML = `
                                 <span class="stars-preview">${getStars(average)}</span>
-                                <div>${average.toFixed(1)} (${data.length} оценок)</div>
+                                <div class="rating-text">${average.toFixed(1)} (${data.length} оценок)</div>
                             `;
+                        } else {
+                            // Если оценок нет, показываем сообщение
+                            ratingElement.innerHTML = `<div class="no-ratings">Пока нет оценок</div>`;
                         }
                     }
                 }
