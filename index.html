@@ -683,6 +683,11 @@
             
             return '★'.repeat(fullStars) + '½'.repeat(halfStar) + '☆'.repeat(emptyStars);
         }
+
+        // Обновляем рейтинги при загрузке страницы
+        document.addEventListener('DOMContentLoaded', function() {
+            updateMainPageRatings();
+        });
     </script>
 </body>
 </html>
