@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="./">
+    <title>Логотип 1 - Оценка и отзывы</title>
+    <style>
+        /* Тот же CSS стиль что и для logo5.html */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #FFF8F2;
+            color: #333;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .logo-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .logo-image {
+            max-width: 400px;
+            max-height: 300px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        .rating-section {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .average-rating {
+            font-size: 24px;
+            color: #FFD772;
+            margin-bottom: 10px;
+        }
+        .rating-value {
+            font-size: 32px;
+            font-weight: bold;
+            color: #5308B7;
+        }
+        .rating-count {
+            color: #666;
+            margin-top: 10px;
+            font-size: 16px;
+        }
+        .review-form {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin: 30px 0;
+        }
+        .star-rating {
+            margin: 20px 0;
+            text-align: center;
+        }
+        .star {
+            font-size: 32px;
+            cursor: pointer;
+            color: #ccc;
+            margin: 0 5px;
+            transition: color 0.2s;
+        }
+        .star:hover,
+        .star.active {
+            color: #FFD772;
+        }
+        .reviews-container {
+            margin-top: 40px;
+        }
+        .review-item {
+            border-bottom: 1px solid #eee;
+            padding: 20px 0;
+        }
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        }
+        .reviewer-name {
+            font-weight: bold;
+            color: #5308B7;
+            font-size: 18px;
+        }
+        .review-date {
+            color: #666;
+            font-size: 14px;
+        }
+        .review-rating {
+            color: #FFD772;
+            font-size: 18px;
+            margin-left: 10px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        textarea {
+            height: 120px;
+            resize: vertical;
+        }
+        button {
+            background: #FFD772;
+            color: #111213;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: #FFE872;
+        }
+        .char-count {
+            text-align: right;
+            font-size: 14px;
+            color: #666;
+            margin-top: 5px;
+        }
+        .back-button {
+            margin-bottom: 20px;
+        }
+        .back-button a {
+            color: #5308B7;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        .back-button a:hover {
+            text-decoration: underline;
+        }
+            .logo-description {
+        text-align: left;
+        line-height: 1.6;
+        font-size: 16px;
+        color: #444;
+        margin: 20px 0;
+        padding: 0 20px;
+    }
+
+    .logo-description p {
+        margin-bottom: 15px;
+        text-align: justify;
+    }
+
+    .logo-description p:first-child {
+        margin-top: 0;
+    }
+
+    .logo-description p:last-child {
+        margin-bottom: 0;
+    }
+
+    /* Для мобильных устройств */
+    @media (max-width: 768px) {
+        .logo-description {
+            padding: 0 10px;
+            font-size: 15px;
+        }
+        
+        .logo-description p {
+            text-align: left;
+        }
+    }
+
+    /* Красивое оформление текста */
+    .logo-description {
+        font-family: 'Arial', sans-serif;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Добавляем немного тени для лучшей читаемости */
+    .logo-header {
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Красивые отступы */
+    .logo-header h1 {
+        margin-bottom: 20px;
+        color: #5308B7;
+        font-size: 2.5em;
+        font-weight: bold;
+    }
+
+    .logo-image {
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        border: 3px solid white;
+    }
+    .review-rating {
+        color: #FFD772;
+        font-size: 18px;
+        margin-right: 10px;
+    }
+
+    .review-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    @media (max-width: 600px) {
+        .review-header {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        
+        .review-header > div {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="back-button">
+            <a href="/index.html">← Назад к списку логотипов</a>
+        </div>
+
+        <div class="logo-header">
+            <h1>Логотип 1</h1>
+            <img id="logo-image" class="logo-image" src="//i.siteapi.org/DMeO9zs8wWrp8ryhG71SxZqqTEI=/0x0:2458x1747/270x180/center/top/filters:fill(transparent):format(png)/s2.siteapi.org/ab3217cc07cc4f8/img/f9euc7963ogg0cw8o8w4w0gswko488" alt="Логотип 1">
+            
+            <div class="logo-description"></div>
+
+                <p>Этот логотип представляет собой яркий и символичный дизайн, который сочетает в себе элементы природы, архитектуры и культурного наследия. Основу композиции составляет силуэт замка или крепости с множеством остроконечных башенок, выполненный в теплом оранжевом цвете. Этот цвет символизирует энергию, тепло и историческую значимость, что может указывать на связь с богатым прошлым или устойчивостью. Башенки украшены небольшими флажками, добавляющими динамики и подчеркивающих праздничный или героический мотив.</p>
+                
+                <p>Ниже замка расположена многоцветная горизонтальная полоса, разделенная на три слоя, каждый из которых имеет свой оттенок и значение. Нижний слой, выполненный в ярко-зеленом цвете, представляет собой травянистую основу или холмы, символизируя природу, рост и жизненную силу. Над ним идет желтый слой с плавными изогнутыми линиями, напоминающий солнечный свет или золотые поля, что добавляет ощущение процветания и оптимизма. Эти два цвета вместе создают контраст и гармонию, подчеркивая связь с землей и природными ресурсами.</p>
+                
+                <p>Самая нижняя часть логотипа представляет собой волнообразную синюю зону, которая изображает воду — возможно, реку или море. Этот элемент, выполненный в нескольких оттенках синего (от глубокого до светлого), символизирует движение, чистоту и жизненную силу природы. Волны плавно перетекают друг в друга, добавляя динамики и мягкости всему дизайну.</p>
+                
+                <p>Над волнами и вдоль всей композиции проходит надпись "Кром", выполненная в изящном, слегка наклонном шрифте с завитками. Буквы написаны темно-синим цветом, что создает контраст с яркими фоновыми цветами и придает тексту элегантность и читаемость. Название "Кром" может быть отсылкой к географическому месту, историческому объекту или бренду, а стиль надписи намекает на традиционность и утонченность.</p>
+                
+                <p>В целом, логотип выглядит как гармоничное сочетание природных мотивов (вода, земля, свет) и архитектурного символа (замок), что может указывать на бренд, связанный с туризмом, культурой или региональной идентичностью. Цветовая палитра — оранжевый, зеленый, желтый и синий — делает дизайн живым, запоминающимся и универсальным для использования в различных медиа.</p>
+            </div>
+        </div>
+
+        <div class="rating-section">
+            <h2>Средняя оценка</h2>
+            <div class="average-rating" id="average-stars">★★★★★</div>
+            <div class="rating-value" id="average-value">0.0</div>
+            <div class="rating-count" id="rating-count">(0 оценок)</div>
+        </div>
+
+        <div class="review-form">
+            <h2>Оставить отзыв и оценку</h2>
+            <form id="reviewForm">
+                <div class="form-group">
+                    <label for="reviewer-name">Ваше имя:</label>
+                    <input type="text" id="reviewer-name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Ваша оценка:</label>
+                    <div class="star-rating">
+                        <span class="star" onclick="setRating(1)">☆</span>
+                        <span class="star" onclick="setRating(2)">☆</span>
+                        <span class="star" onclick="setRating(3)">☆</span>
+                        <span class="star" onclick="setRating(4)">☆</span>
+                        <span class="star" onclick="setRating(5)">☆</span>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="review-text">Ваш отзыв:</label>
+                    <textarea id="review-text" name="comment" required maxlength="5000"></textarea>
+                    <div class="char-count" id="char-count">0/5000 символов</div>
+                </div>
+                
+                <button type="submit">Отправить отзыв</button>
+            </form>
+        </div>
+
+        <div class="reviews-container">
+            <h2>Отзывы пользователей</h2>
+            <div id="reviews-list">
+                <!-- Отзывы будут загружаться здесь -->
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+<script>
+// Конфигурация Supabase
+const supabaseUrl = 'https://fdwdfyifbvoqzknpjmby.supabase.co'
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZkd2RmeWlmYnZvcXprbnBqbWJ5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTYzMzIwOTcsImV4cCI6MjA3MTkwODA5N30.y94t93awxRqsrNkUVZhjyhEbVPOopAS2e5hBsymecn8'
+
+const logoId = 1; // ID логотипа
+let currentRating = 0;
+let supabase;
+
+// Инициализация
+document.addEventListener('DOMContentLoaded', function() {
+    initializeSupabase();
+    loadRating();
+    loadReviews();
+});
+
+// Инициализация Supabase
+function initializeSupabase() {
+    if (window.supabase) {
+        supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
+        console.log('Supabase подключен для логотипа', logoId);
+    } else {
+        console.error('Supabase library not loaded');
+    }
+}
+
+// Установка оценки
+function setRating(rating) {
+    currentRating = rating;
+    const stars = document.querySelectorAll('.star');
+    stars.forEach((star, index) => {
+        if (index < rating) {
+            star.textContent = '★';
+            star.classList.add('active');
+        } else {
+            star.textContent = '☆';
+            star.classList.remove('active');
+        }
+    });
+}
+
+// Загрузка рейтинга
+async function loadRating() {
+    try {
+        const { data, error } = await supabase
+            .from('reviews')
+            .select('rating')
+            .eq('logo_id', logoId);
+        
+        if (error) throw error;
+        
+        if (data && data.length > 0) {
+            const total = data.reduce((sum, item) => sum + item.rating, 0);
+            const average = total / data.length;
+            updateRatingDisplay(average, data.length);
+        } else {
+            updateRatingDisplay(0, 0);
+        }
+    } catch (error) {
+        console.error('Ошибка загрузки рейтинга:', error);
+    }
+}
+
+// Загрузка отзывов
+async function loadReviews() {
+    try {
+        const { data: reviews, error } = await supabase
+            .from('reviews')
+            .select('*')
+            .eq('logo_id', logoId)
+            .order('created_at', { ascending: false });
+        
+        if (error) throw error;
+        
+        displayReviews(reviews || []);
+        
+    } catch (error) {
+        console.error('Ошибка загрузки отзывов:', error);
+        const reviewsList = document.getElementById('reviews-list');
+        if (reviewsList) {
+            reviewsList.innerHTML = '<p style="text-align: center; color: #ff0000;">Ошибка загрузки отзывов</p>';
+        }
+    }
+}
+
+// Отображение отзывов
+function displayReviews(reviews) {
+    const reviewsList = document.getElementById('reviews-list');
+    if (!reviewsList) return;
+    
+    reviewsList.innerHTML = '';
+    
+    if (reviews.length === 0) {
+        reviewsList.innerHTML = '<p style="text-align: center; color: #666;">Пока нет отзывов. Будьте первым!</p>';
+        return;
+    }
+    
+    reviews.forEach(review => {
+        const reviewElement = document.createElement('div');
+        reviewElement.className = 'review-item';
+        
+        const date = new Date(review.created_at).toLocaleDateString('ru-RU', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit'
+        });
+        
+        reviewElement.innerHTML = `
+            <div class="review-header">
+                <span class="reviewer-name">${review.name}</span>
+                <div>
+                    <span class="review-rating">${'★'.repeat(review.rating)}${'☆'.repeat(5 - review.rating)}</span>
+                    <span class="review-date">${date}</span>
+                </div>
+            </div>
+            <div>${review.comment}</div>
+        `;
+        
+        reviewsList.appendChild(reviewElement);
+    });
+}
+
+// Обновление отображения рейтинга
+function updateRatingDisplay(average, count) {
+    const fullStars = Math.floor(average);
+    const hasHalfStar = average % 1 >= 0.5;
+    
+    let starsHtml = '';
+    for (let i = 1; i <= 5; i++) {
+        if (i <= fullStars) {
+            starsHtml += '★';
+        } else if (i === fullStars + 1 && hasHalfStar) {
+            starsHtml += '⯨';
+        } else {
+            starsHtml += '☆';
+        }
+    }
+    
+    document.getElementById('average-stars').innerHTML = starsHtml;
+    document.getElementById('average-value').textContent = average.toFixed(1);
+    document.getElementById('rating-count').textContent = `(${count} ${getRatingWord(count)})`;
+}
+
+// Правильное склонение слова "оценка"
+function getRatingWord(count) {
+    if (count % 10 === 1 && count % 100 !== 11) return 'оценка';
+    if ([2, 3, 4].includes(count % 10) && ![12, 13, 14].includes(count % 100)) return 'оценки';
+    return 'оценок';
+}
+
+// Обработчик отправки формы
+document.getElementById('reviewForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const name = document.getElementById('reviewer-name').value.trim();
+    const comment = document.getElementById('review-text').value.trim();
+    
+    if (!name || !comment || currentRating === 0) {
+        alert('Пожалуйста, заполните все поля и поставьте оценку');
+        return;
+    }
+    
+    const submitBtn = this.querySelector('button[type="submit"]');
+    const originalText = submitBtn.textContent;
+    submitBtn.textContent = 'Отправка...';
+    submitBtn.disabled = true;
+    
+    try {
+        const { data, error } = await supabase
+            .from('reviews')
+            .insert([
+                {
+                    logo_id: logoId,
+                    name: name,
+                    comment: comment,
+                    rating: currentRating
+                }
+            ])
+            .select();
+        
+        if (error) throw error;
+        
+        // Очищаем форму
+        document.getElementById('reviewForm').reset();
+        document.getElementById('char-count').textContent = '0/5000 символов';
+        currentRating = 0;
+        
+        // Сбрасываем звезды
+        document.querySelectorAll('.star').forEach(star => {
+            star.textContent = '☆';
+            star.classList.remove('active');
+        });
+        
+        // Обновляем данные
+        await loadRating();
+        await loadReviews();
+        
+        alert('Спасибо за ваш отзыв! ✅');
+        
+    } catch (error) {
+        console.error('Ошибка отправки отзыва:', error);
+        alert('Ошибка при отправке отзыва');
+    } finally {
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+    }
+});
+
+// Счетчик символов
+document.getElementById('review-text').addEventListener('input', function() {
+    const length = this.value.length;
+    const counter = document.getElementById('char-count');
+    if (counter) {
+        counter.textContent = `${length}/5000 символов`;
+        counter.style.color = length > 4500 ? '#ff0000' : length > 4000 ? '#ff6600' : '#666';
+    }
+});
+</script>
+    
+</body>
+</html>
