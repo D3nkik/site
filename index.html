@@ -1,1053 +1,594 @@
 <!DOCTYPE html>
 <html lang="ru-RU">
 <head>
-    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <base href="./">
     <title>Брендинг территорий - Анализ и оценка логотипов</title>
-        
-    <style>svg {display: none;}</style>
-    <link rel="preconnect" href="https://fonts.cdnfonts.com/" crossorigin>
-    <link rel="preconnect" href="https://fonts.googleapis.com/" crossorigin>
-    <style type="text/css">
-        @font-face {font-family:FontHeader;font-style:normal;font-weight:700;font-display:swap;src:url(https://fonts.gstatic.com/s/rubik/v28/iJWZBXyIfDnIV5PNhY1KTN7Z-Yh-4I-FU0U1Z4Y.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face {font-style:normal;font-weight:700;font-display:swap;src:url(https://fonts.gstatic.com/s/rubik/v28/iJWZBXyIfDnIV5PNhY1KTN7Z-Yh-4I-FV0U1.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-family:FontHeader}@font-face {src:url(https://fonts.gstatic.com/s/cousine/v27/d6lIkaiiRdih4SpP_SAvzAbt.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;font-family:FontParagraph;font-style:normal;font-weight:400;font-display:swap}@font-face {font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/cousine/v27/d6lIkaiiRdih4SpP_ScvzAbt.woff2) format('woff2');unicode-range:U+0370-03FF;font-family:FontParagraph}@font-face {font-display:swap;src:url(https://fonts.gstatic.com/s/cousine/v27/d6lIkaiiRdih4SpP_SsvzAbt.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB;font-family:FontParagraph;font-style:normal;font-weight:400}@font-face {font-family:FontParagraph;font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/cousine/v27/d6lIkaiiRdih4SpP_SQvzA.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-        :root {
-            --fallback-font-header: "ProximaNova-Bold", Futura, Avenir, Helvetica,  -apple-system, BlinkMacSystemFont, Roboto, Arial, Droid Sans, sans-serif;
-            --fallback-font-paragraph: "Proxima Nova", Futura, Avenir, Helvetica, -apple-system, BlinkMacSystemFont, Roboto, Arial, Droid Sans, sans-serif;
-        }
-    </style>
-    <link href="//s.siteapi.org/frontend/static/grid_12/css/layouts.24bb81.min.css" rel="stylesheet" type="text/css"/>                    
     
-    <link rel="canonical" href="https://d3nkik.github.io/project/">
-    
-    <style type="text/css">
-    :root {
-                --button-default-font-family : FontParagraph, var(--fallback-font-paragraph), "ProximaNova-Bold", Futura, Avenir, Helvetica, -apple-system, BlinkMacSystemFont, Roboto, Arial, Droid Sans, sans-serif;
-                --button-default-color : #111213;
-                --button-default-bg-color : #FFD772;
-                --button-default-border-color : #FFD772;
-                --button-default-color-hover : #111213;
-                --button-default-bg-color-hover : #FFE872;
-                --button-default-border-color-hover : #FFE872;
-                --button-default-color-active : #111213;
-                --button-default-bg-color-active : #F0BC3A;
-                --button-default-border-color-active : #F0BC3A;
-                --button-default-radius-small : var(--button-default-radius-small-2);
-                --button-default-radius-medium : var(--button-default-radius-medium-2);
-                --button-default-radius-large : var(--button-default-radius-large-2);
-                --button-default-radius-xlarge : var(--button-default-radius-xlarge-2);
-                --button-default-radius-xxlarge : var(--button-default-radius-xxlarge-2);
-                --button-default-border-width : 2;
-                --button-default-shadow-blur : 0;
-                --button-default-border-width-hover : 2;
-                --button-default-shadow-blur-hover : 0;
-                --button-default-border-width-active : 2;
-                --button-default-shadow-blur-active : 0;
-                --button-default-shadow-offsetY : 0;
-                --button-default-shadow-offsetY-hover : 0;
-                --button-default-shadow-offsetY-active : 0;
-                --button-default-bg-color-rgba : rgba(255, 215, 114, 1.000000);
-                --button-default-bg-color-hover-rgba : rgba(255, 232, 114, 1.000000);
-                --button-default-bg-color-active-rgba : rgba(240, 188, 58, 1.000000);
-                --button-default-border-color-rgba : rgba(255, 215, 114, 1.000000);
-                --button-default-border-color-hover-rgba : rgba(255, 232, 114, 1.000000);
-                --button-default-border-color-active-rgba : rgba(240, 188, 58, 1.000000);
-                --button-bordered-font-family : FontParagraph, var(--fallback-font-paragraph), "ProximaNova-Bold", Futura, Avenir, Helvetica, -apple-system, BlinkMacSystemFont, Roboto, Arial, Droid Sans, sans-serif;
-                --button-bordered-color : #111213;
-                --button-bordered-bg-color : #D9FF89;
-                --button-bordered-border-color : #D9FF89;
-                --button-bordered-color-hover : #111213;
-                --button-bordered-bg-color-hover : #DFFF9C;
-                --button-bordered-border-color-hover : #DFFF9C;
-                --button-bordered-color-active : #000000;
-                --button-bordered-bg-color-active : #B9E163;
-                --button-bordered-border-color-active : #B9E163;
-                --button-bordered-radius-small : var(--button-bordered-radius-small-1);
-                --button-bordered-radius-medium : var(--button-bordered-radius-medium-1);
-                --button-bordered-radius-large : var(--button-bordered-radius-large-1);
-                --button-bordered-radius-xlarge : var(--button-bordered-radius-xlarge-1);
-                --button-bordered-radius-xxlarge : var(--button-bordered-radius-xxlarge-1);
-                --button-bordered-border-width : 2;
-                --button-bordered-shadow-blur : 0;
-                --button-bordered-border-width-hover : 2;
-                --button-bordered-shadow-blur-hover : 0;
-                --button-bordered-border-width-active : 2;
-                --button-bordered-shadow-blur-active : 0;
-                --button-bordered-shadow-offsetY : 0;
-                --button-bordered-shadow-offsetY-hover : 0;
-                --button-bordered-shadow-offsetY-active : 0;
-                --button-bordered-bg-color-rgba : rgba(217, 255, 137, 1.000000);
-                --button-bordered-bg-color-hover-rgba : rgba(223, 255, 156, 1.000000);
-                --button-bordered-bg-color-active-rgba : rgba(185, 225, 99, 1.000000);
-                --button-bordered-border-color-rgba : rgba(217, 255, 137, 1.000000);
-                --button-bordered-border-color-hover-rgba : rgba(223, 255, 156, 1.000000);
-                --button-bordered-border-color-active-rgba : rgba(185, 225, 99, 1.000000);
-                --menu-logo-width : 215px;
-                --menu-vertical-align : center;
-                --menu-links-underline-on-hover : 1;
-                --menu-sticky : sticky;
-                --menu-font-size : 0.75rem;
-                --menu-width : 84.5rem;
-                --menu-bg-blur : blur(32px);
-                --menu-menu_layering : 1;
-                --menu-font-family : FontParagraph, var(--fallback-font-paragraph), "ProximaNova-Bold", Futura, Avenir, Helvetica,  -apple-system, BlinkMacSystemFont, Roboto, Arial, Droid Sans, sans-serif;
-                --menu-color : #FFFFFF;
-                --menu-color-hover : #FFE872;
-                --menu-bg-color : rgba(83, 8, 183, 1.000000);
-                --menu-bg-color-solid : #5308B7;
-                --header-color : #111213;
-            }
-</style>
-
-</head>
-<body id="top-body"
-      data-page-type="index"
-      class="site site_main-page "
-      data-html-version="8450396804356098204101"
-      data-grid="12"
-      data-ng-controller="BlocksController as blockCtrl"
-      data-ng-init="moduleId = 2"
-      data-lang="ru_RU"
-      data-cart="new"
-      data-main-page = true
-      style="--show-header: block;--header-background-color: transparent;background: none;">
-<div class="show-for-large ">
-    
-<style>
-    #nh-notify-line__unpaid {
-        font-family: Roboto, Arial, sans-serif;
-        font-weight: 400;
-        z-index: 510;
-    }
-    .nh-notify-line__button {
-        font-family: Roboto, Arial, sans-serif;
-        font-weight: 500;
-    }
-    .nh-notify-line {
-        position: fixed;
-        width: 100%;
-        bottom: 0;
-        z-index: 11;
-        text-align: center;
-        letter-spacing: 0;
-    }
-    .nh-notify-line__top {
-        background: rgba(2, 80, 139, 0.95);
-    }
-    .nh-notify-line__bottom {
-        background: rgba(5, 142, 217, 1);
-    }
-    .nh-notify-line__bottom_hide-small {
-        display: none;
-    }
-    .nh-notify-line__top,
-    .nh-notify-line__bottom {
-        padding: 0 26px;
-    }
-    .nh-notify-line__link {
-        display: inline-block;
-        width: 100%;
-        vertical-align: top;
-        color: #fff;
-        text-decoration: none;
-    }
-    .nh-notify-line__link:hover,
-    .nh-notify-line__link:focus {
-        color: #fff;
-    }
-    .nh-notify-line__row {
-        position: relative;
-        max-width: 1152px;
-        margin: 0 auto;
-    }
-    .nh-notify-line__row:before,
-    .nh-notify-line__row:after {
-        content: "";
-        display: table;
-        box-sizing: border-box;
-    }
-    .nh-notify-line__column {
-        display: inline-block;
-        width: 100%;
-        vertical-align: top;
-        padding-left: 16px;
-        padding-right: 16px;
-        box-sizing: border-box;
-    }
-    .nh-notify-line__column_hide-small {
-        display: none;
-    }
-    .nh-notify-line__logo {
-        padding: 9px 0 0;
-    }
-    .nh-notify-line__text {
-        margin: 14px 0 0;
-        font-size: 13px;
-        line-height: 1.385;
-    }
-    .nh-notify-line__button {
-        margin: 8px 0 14px;
-        cursor: pointer;
-        display: inline-block;
-        padding: 13px 37px;
-        background-color: #0CCA4A;
-        border: none;
-        font-size: 12px;
-        line-height: 1.167;
-        text-transform: uppercase;
-        box-sizing: border-box;
-        color: currentColor;
-    }
-    .nh-notify-line__autor {
-        padding: 12px 0;
-        font-size: 12px;
-        line-height: 1.334;
-        color: #F6F6F9;
-    }
-    .nh-notify-line__autor-arrow {
-        padding: 0 0 0 10px;
-    }
-    .nh-notify-line__autor-arrow svg {
-        max-width: 13px;
-        max-height: 10px;
-        fill: currentColor;
-    }
-    .nh-notify-line__close {
-        cursor: pointer;
-        position: absolute;
-        top: 4px;
-        right: -20px;
-        z-index: 12;
-        width: 40px;
-        height: 40px;
-        line-height: 40px;
-        text-align: center;
-    }
-    .nh-notify-line__close:hover {
-        opacity: 0.7;
-    }
-    .nh-notify-line__close svg {
-        max-width: 24px;
-        max-height: 24px;
-        vertical-align: middle;
-        fill: #058ED9;
-    }
-    @media (min-width: 768px) {
-        .nh-notify-line__top,
-        .nh-notify-line__bottom {
-            padding: 0 24px;
-        }
-        .nh-notify-line__bottom_hide-small {
-            display: block;
-        }
-        .nh-notify-line__column {
-            display: inline-block;
-            vertical-align: middle;
-            padding-left: 8px;
-            padding-right: 8px;
-        }
-        .nh-notify-line__column_hide-small {
-            display: inline-block;
-        }
-        .nh-notify-line__one {
-            width: 20%;
-            vertical-align: top;
-        }
-        .nh-notify-line__two {
-            width: 50%;
-        }
-        .nh-notify-line__tree {
-            display: inline-block;
-            width: 23%;
-            text-align: left;
-        }
-        .nh-notify-line__logo {
-            display: inline-block;
-            padding: 18px 0;
-            text-align: right;
-        }
-        .nh-notify-line__logo svg {
-            max-width: 124px;
-            max-height: 34px;
-            vertical-align: top;
-        }
-        .nh-notify-line__text {
-            margin: 16px 0;
-            font-size: 17px;
-            line-height: 1.412;
-        }
-        .nh-notify-line__button {
-            display: inline-block;
+    <style>
+        /* Базовые стили для мобильной адаптации */
+        * {
+            box-sizing: border-box;
             margin: 0;
-            padding: 10px 25px;
-            font-size: 10px;
-            line-height: 1.2;
-        }
-        .nh-notify-line__close {
-            cursor: pointer;
-            position: absolute;
-            right: 0;
-            top: 24px;
-            z-index: 12;
-            width: 32px;
-            height: 32px;
-            line-height: 32px;
-            text-align: center;
-        }
-    }
-    @media (min-width: 960px) {
-        .nh-notify-line__row_full-large {
-            max-width: 100%;
-        }
-        .nh-notify-line__top,
-        .nh-notify-line__bottom {
             padding: 0;
         }
-        .nh-notify-line__logo {
-            padding: 14px 0 16px;
-            text-align: right;
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #FFF8F2;
         }
-        .nh-notify-line__logo svg {
-            max-width: 128px;
-            max-height: 35px;
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
         }
-        .nh-notify-line__autor {
-            padding: 6px 0;
-            font-size: 12px;
-            line-height: 1.334;
-        }
-        .nh-notify-line__button {
-            margin: 20px 0;
-        }
-        .nh-notify-line__close {
-            right: 12px;
-            top: 20px;
-        }
-    }
-    @media (min-width: 768px) and (max-width: 1152px) {
-        .nh-notify-line__button_hide-text {
+        
+        /* Адаптивное меню */
+        .mobile-menu-toggle {
             display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 10px;
         }
-    }
-    @media (min-width: 1152px) {
-        .nh-notify-line__column {
-            vertical-align: top;
-            padding-left: 16px;
-            padding-right: 16px;
+        
+        /* Шапка */
+        .site-header {
+            background: #5308B7;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
-
-        .nh-notify-line__one {
-            width: 25%;
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-
-        .nh-notify-line__two {
-            width: 41.667%;
+        
+        .logo img {
+            max-width: 120px;
+            height: auto;
         }
-
-        .nh-notify-line__tree {
-            width: 32.3%;
+        
+        /* Основной контент */
+        .main-content {
+            padding: 30px 0;
+        }
+        
+        .section {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        
+        .section-title {
+            color: #5308B7;
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 2em;
+            font-weight: 700;
+        }
+        
+        /* Сетка логотипов */
+        .logos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .logo-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .logo-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        
+        .logo-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .logo-info {
+            padding: 20px;
+        }
+        
+        .logo-title {
+            color: #5308B7;
+            font-size: 1.2em;
+            margin-bottom: 10px;
             text-align: center;
         }
-
-        .nh-notify-line__logo {
-            padding: 9px 0 0;
+        
+        .view-button {
+            display: block;
+            width: 100%;
+            background: #FFD772;
+            color: #111213;
             text-align: center;
+            padding: 12px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s ease;
         }
-
-        .nh-notify-line__logo svg {
-            max-width: 148px;
-            max-height: 40px;
+        
+        .view-button:hover {
+            background: #FFE872;
         }
-
-        .nh-notify-line__text {
-            margin: 24px -16px;
-            font-size: 18px;
-            line-height: 1.334;
+        
+        /* Форма отзыва */
+        .review-form {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
         }
-
-        .nh-notify-line__button {
-            margin: 16px 0;
-            padding: 13px 37px;
-            font-size: 12px;
-            line-height: 1.167;
+        
+        .form-group {
+            margin-bottom: 20px;
         }
-
-        .nh-notify-line__autor {
+        
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #5308B7;
+        }
+        
+        .form-input, .form-textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-input:focus, .form-textarea:focus {
+            outline: none;
+            border-color: #5308B7;
+        }
+        
+        .form-textarea {
+            height: 120px;
+            resize: vertical;
+        }
+        
+        .submit-button {
+            background: linear-gradient(135deg, #FFD772, #FFE872);
+            color: #111213;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .submit-button:hover {
+            transform: translateY(-2px);
+        }
+        
+        /* Отзывы */
+        .reviews-container {
+            margin-top: 40px;
+        }
+        
+        .review-item {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-left: 4px solid #5308B7;
+        }
+        
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .review-name {
+            font-weight: 600;
+            color: #5308B7;
+        }
+        
+        .review-date {
+            color: #666;
             font-size: 14px;
-            line-height: 1.143;
         }
-
-        .nh-notify-line__close {
-            top: 20px;
-            right: 20px;
+        
+        /* Футер */
+        .site-footer {
+            background: #5308B7;
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            margin-top: 50px;
         }
-    }
-
-    .nh-notify-line__button:hover {
-        opacity: 1;
-        background-color: #0DDA50;
-    }
-</style>
-
-
-
-<div class="site__layout">
-    
-        <div id="container" class="site-container module main-page-module main-page-module_no-slider">
-                                                                        
-
-                                                                                                                                                                                                                                                        
-
-<link href="//s.siteapi.org/frontend/static/grid_12/css/topbar.e4e5dc.min.css" rel="stylesheet" type="text/css"/><header
-    class="nh-topbar site-header nh-editor-panel nh-topbar--sticky 
-    nh-topbar--padding-top-0 nh-topbar--padding-bottom-0 "
-    style="    --topbar-border-color: rgba(255,255,255, 0); --topbar-border-width: 0px;    --topbar-shadow-rgba-color: rgba(255,255,255, 0);            --topbar-shadow-y: 2px;
-        --topbar-shadow-blur: 0px;
-        --topbar-row-top-border-color: rgba(255,255,255, 0); --topbar-row-top-border-width: 0px;    --topbar-row-top-shadow-rgba-color: rgba(255,255,255, 0);    --topbar-row-middle-border-color: rgba(255,255,255, 0); --topbar-row-middle-border-width: 0px;    --topbar-row-middle-shadow-rgba-color: rgba(255,255,255, 0);    --topbar-row-bottom-border-color: rgba(255,255,255, 0); --topbar-row-bottom-border-width: 0px;    --topbar-row-bottom-shadow-rgba-color: rgba(255,255,255, 0);">
-    <section data-ng-controller="TopContactsController"></section>    <section
-        class="nh-topbar-wrapper nh-topbar--round-0 nh-topbar--center lazyload"
-                            
-
-
         
-           style="background-position: top left;background-repeat: repeat-x;background-size: 0px;background-color: rgba(83,8,183, 1);"
-                    >
-                            
-                                                                                                                                                            
-    
-
-<div class="nh-topbar__row nh-topbar__row--composition-0 nh-topbar--gap-1 
-    nh-topbar--hide-2 nh-topbar__row--margin-top-2 nh-topbar__row--margin-bottom-2 nh-topbar__row-middle nh-topbar--round-0 nh-topbar--inner-margin lazyload"
+        /* Медиа-запросы для мобильных устройств */
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: block;
+            }
             
-
-
-        
-           style="background-position: top center;background-repeat: no-repeat;background-size: 0px;background-color: rgba(255,255,255, 0);"
-    >
-                        
-                        
-        
-
-
-
-<div class="nh-topbar__column nh-topbar--gap-4 nh-topbar--hide-2 nh-topbar--round-0 nh-topbar__column--vertical-align-center nh-topbar__column--horizontal-align-left nh-topbar--padding-top-0 nh-topbar--padding-bottom-0 nh-topbar--padding-left-0 nh-topbar--padding-right-0  lazyload"
+            .header-nav {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: #5308B7;
+                padding: 15px;
+            }
             
-
-
-        
-           style="    border:     0 solid     rgba(255,255,255, 0);
-    box-shadow: 0px var(--topbar-shadow-y, 4px) var(--topbar-shadow-blur, 24px) 0px     transparent;
- background-position: top center;background-repeat: no-repeat;background-size: 0px;background-color: rgba(255,255,255, 0);"
-    >
-                                    <a href="https://analis1.nethouse.ru/" class="nh-topbar--hide-2">
-                                                                                            
-                                                                                                                                                        
-            <picture>
-                <source media="(max-width: 767px)" srcset="//i.siteapi.org/ajZdkuWuYCN_1fXtX-FnOJBiihs=/fit-in/140x430/filters:format(webp):upscale()/s2.siteapi.org/c1822f4f917c46d/logo/5el72rgjlqscwkwkcs8oo0c84wckw8 1x, //i.siteapi.org/eFh9MFBggRUKObPInjWnGL1qY6M=/fit-in/280x860/filters:format(webp):upscale()/s2.siteapi.org/c1822f4f917c46d/logo/5el72rgjlqscwkwkcs8oo0c84wckw8 2x " type="image/webp">
-                <source media="(max-width: 767px)" srcset="//i.siteapi.org/7R2sIxBtQymnydrjIVjz_m4R8Jw=/fit-in/140x430/filters:format(png):upscale()/s2.siteapi.org/c1822f4f917c46d/logo/5el72rgjlqscwkwkcs8oo0c84wckw8 1x, //i.siteapi.org/DB2bxIKF4i18QIFhW4Xqo8bCpr0=/fit-in/280x860/filters:format(png):upscale()/s2.siteapi.org/c1822f4f917c46d/logo/5el72rgjlqscwkwkcs8oo0c84wckw8 2x " type="image/png">
-                <source media="(min-width: 768px)" srcset="//i.siteapi.org/ajZdkuWuYCN_1fXtX-FnOJBiihs=/fit-in/140x430/filters:format(webp):upscale()/s2.siteapi.org/c1822f4f917c46d/logo/5el72rgjlqscwkwkcs8oo0c84wckw8 1x, //i.siteapi.org/eFh9MFBggRUKObPInjWnGL1qY6M=/fit-in/280x860/filters:format(webp):upscale()/s2.siteapi.org/c1822f4f917c46d/logo/5el72rgjlqscwkwkcs8oo0c84wckw8 2x " type="image/webp">
-                <source media="(min-width: 768px)" srcset="//i.siteapi.org/7R2sIxBtQymnydrjIVjz_m4R8Jw=/fit-in/140x430/filters:format(png):upscale()/s2.siteapi.org/c1822f4f917c46d/logo/5el72rgjlqscwkwkcs8oo0c84wckw8 1x, //i.siteapi.org/DB2bxIKF4i18QIFhW4Xqo8bCpr0=/fit-in/280x860/filters:format(png):upscale()/s2.siteapi.org/c1822f4f917c46d/logo/5el72rgjlqscwkwkcs8oo0c84wckw8 2x " type="image/png">
-                <img
-                    sizes="(max-width: 767px) 215px, (min-width: 768px) 430px"
-                    src="//i.siteapi.org/ajZdkuWuYCN_1fXtX-FnOJBiihs=/fit-in/140x430/filters:format(webp):upscale()/s2.siteapi.org/c1822f4f917c46d/logo/5el72rgjlqscwkwkcs8oo0c84wckw8"
-                    media="(-webkit-min-device-pixel-ratio: 1.5)"
-                    class="nh-topbar-logo"
-                    style="max-width: 140px;" />
-            </picture>
-        </a>            </div>
-                                
-                    
-    
-
-
-
-<div class="nh-topbar__column nh-topbar--gap-1 nh-topbar--hide-2 nh-topbar--round-0 nh-topbar__column--vertical-align-center nh-topbar__column--horizontal-align-center nh-topbar--padding-top-0 nh-topbar--padding-bottom-0 nh-topbar--padding-left-0 nh-topbar--padding-right-0  lazyload"
-</div>
-                                
-                    
-    
-
-
-
-<div class="nh-topbar__column nh-topbar--gap-1 nh-topbar--hide-2 nh-topbar--round-0 nh-topbar__column--vertical-align-center nh-topbar__column--horizontal-align-right nh-topbar--padding-top-0 nh-topbar--padding-bottom-0 nh-topbar--padding-left-1 nh-topbar--padding-right-1  lazyload"
+            .header-nav.active {
+                display: block;
+            }
             
-
-
-        
-           style="    border:     0 solid     rgba(255,255,255, 0);
-    box-shadow: 0px var(--topbar-shadow-y, 4px) var(--topbar-shadow-blur, 24px) 0px     transparent;
- background-position: top center;background-repeat: no-repeat;background-size: 0px;background-color: rgba(255,255,255, 0);"
-    >
-                        
-
-
-    <div class="nh-topbar-cart small-cart__header-container nh-topbar--hide-2 
-        nh-topbar-cart--light nh-topbar-cart--s nh-topbar-cart--round-3
-         nh-topbar-cart-font--paragraph" style="    --cart-border-width:     2px;
-    --cart-border-color:     rgba(255,215,114, 1);
-    --cart-shadow:     transparent;
-    --cart-background: rgba(255,215,114, 0);
-    --text-color-cart: #FFD772;
-    --cart-border-hover-width:     0;
-    --cart-border-hover-color:     rgba(0,0,0, 0);
-    --cart-shadow-hover:     transparent;
-    --cart-background-hover:     rgba(255,215,114, 1);
-    --text-color-cart-hover: #111213;
-    --cart-border-active-width:     0;
-    --cart-border-active-color:     rgba(0,0,0, 0);
-    --cart-active-shadow:     transparent;
-    --cart-background-active:     rgba(255,255,255, 0);
-    --text-color-cart-active: #FFD772;
-">
-    </div>
-            </div>
-            </div>
-                    </section>
-    <div id="nh-topbar-overlay" class="nh-topbar-overlay">
-    <button id="nh-topbar-overlay-close" class="nh-topbar-overlay-close">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M5.29289 5.29289C5.68342 4.90237 6.31658 4.90237 6.70711 5.29289L12 10.5858L17.2929 5.29289C17.6834 4.90237 18.3166 4.90237 18.7071 5.29289C19.0976 5.68342 19.0976 6.31658 18.7071 6.70711L13.4142 12L18.7071 17.2929C19.0976 17.6834 19.0976 18.3166 18.7071 18.7071C18.3166 19.0976 17.6834 19.0976 17.2929 18.7071L12 13.4142L6.70711 18.7071C6.31658 19.0976 5.68342 19.0976 5.29289 18.7071C4.90237 18.3166 4.90237 17.6834 5.29289 17.2929L10.5858 12L5.29289 6.70711C4.90237 6.31658 4.90237 5.68342 5.29289 5.29289Z" fill="#343E45"/>
-        </svg>
-    </button>
-    <div id="nh-topbar-overlay-content" class="nh-topbar-overlay-content"></div>
-</div><div class="nh-topbar-blur nh-topbar--round-0 "></div></header>
-                                    
-        <div id="content-anchor" class="site-content small-12">
-            <div class="site-background" style="background-color: #FFF8F2; background-image: none; "></div>
-            <section id="content"
-                     class="js-blocks-list"
-                     data-blocks-list
-                     data-ng-controller="ContentController">
-                                <div class="js-sorted-blocks main-page-module__list module__list "
-                     data-sorted-blocks
-                     data-widget-store-list="content"
-                     data-region="1"
-                     data-module="2">
-                                                                                                                                    
-                                
- 
-<section id="desc"
-            data-region="1"
-        class="widget-desc -nt-widget on-view  desc_light block-6 widget-sort on-plate onmain widget-block nh-editor-panel lazyload "
-             style="
-                      background-position: top left;
-             background-repeat: no-repeat;
-             background-size: auto;
-                  "
-             >
-        <div class="widget">
-                <div class="widget__wrapper">
-            <div class="widget__header widget__header--indent-bottom widget__header--center widget__header__title_underlined">
-                    <h1 class="nh-h2 widget__header__title 
-                        widget__header__title--content widget__header__title--center">
-                        О компании                    </h1>
-            </div>
-            <div class="content-block widget__content widget__content_filled" id="desc-show">
-                <div data-ng-show="$ctrl.showContent()">
-                    <div>
-                                                    <div class="user-inner">
-                                                                    <div class="mr-block"><div class=" mrb-row__content -inline-group_top mrb-row-index-0"><div class="mrb-small-18 mrb-medium-18
-            mrb-col-index-0 mrb-large-18"><div class="-gd-content mrb-block-index-0"><div class="user-inner">
-    <p>Мы &mdash; команда визионеров, объединённых страстью к инновациям и эстетике, создающая передовой искусственный интеллект, который переосмысливает искусство дизайна логотипов. Наша компания стремится к тому, чтобы каждый бренд мог обрести визуальную идентичность, которая не только привлекает внимание, но и оставляет глубокий эмоциональный отклик. Мы разрабатываем ИИ, который погружается в анализ сотен отзывов о логотипах, изучая их с точки зрения дизайна, психологии восприятия и культурных ассоциаций.</p>
-<p>Наш процесс начинается с тщательного сбора мнений пользователей &mdash; от профессиональных дизайнеров до обычных потребителей. Мы анализируем, какие элементы логотипов &mdash; цвета, формы, шрифты, композиция &mdash; вызывают восхищение, а какие не находят отклика. Наш ИИ учится распознавать паттерны привлекательности, выявляя, что делает логотип запоминающимся, уникальным и эффективным для конкретной аудитории. Это не просто алгоритм &mdash; это интеллектуальный партнёр, который помогает дизайнерам и брендам создавать визуальные символы, способные рассказать историю, передать ценности и завоевать доверие.</p>
-<p>Наша цель &mdash; не только автоматизировать анализ, но и вдохновлять на создание логотипов, которые становятся культовыми. Мы мечтаем о мире, где каждый бренд, от стартапа до корпорации, сможет с помощью нашего ИИ обрести визуальную гармонию, которая резонирует с их аудиторией. Мы не просто создаём технологию &mdash; мы строим мост между искусством дизайна и наукой данных, чтобы каждый логотип стал шедевром.</p>
-</div>
-</div></div></div></div>
-                                                            </div>
-                                            </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="widget__content widget__content_filled">
-        <div class="row">
-            <div data-ng-if="$ctrl.loaded" class="widget__view small-10 small-offset-1 column" data-ui-view="desc-view"></div>
-        </div>
-    </div>
-    </section>
-                                
-                                                                                                                                                                                        
-                                
- 
-<section
-                               id="paragraph-13"
-         class="nh-paragraph widget-sort
-         onmain on-view widget-block nh-editor-panel lazyload "><link href="//s.siteapi.org/frontend/static/grid_12/css/paragraph.36decc.min.css" rel="stylesheet" type="text/css"/><div data-widget-replaceable-content="13"
-        data-ng-non-bindable
-        class="lazyload nh-paragraph--indent-top-l nh-paragraph--indent-bottom-l " 
-                            
-
-
-        
-           style="background-position: center;background-repeat: no-repeat;background-size: cover;background-color: rgba(255,255,255, 0);"
-            ><div class="nh-paragraph-inner__edges"><div class="nh-paragraph-inner__width nh-paragraph-inner__width--two-thirds"><div class="nh-paragraph-header nh-paragraph-header--indent-bottom nh-paragraph-header--center"><div class="nh-h2 nh-paragraph-header__title nh-paragraph-title--user-inner nh-paragraph-header__title--two-thirds nh-paragraph-header__title--center"
-                        style="color: #000000;"><h1>Описание проекта</h1><h2><br></h2></div></div><div class="nh-paragraph-desc--user-inner"
-                    style="color: #343E45;">                    <p>Мы — динамичная команда новаторов, объединённых страстью к дизайну и технологиям, работающая над созданием революционного искусственного интеллекта, который изменит мир графического дизайна! Наша миссия — разработать ИИ, способный анализировать отзывы о логотипах, чтобы выявить, что делает их запоминающимися, привлекательными и эффективными для брендов.</p><p>Мы тщательно собираем и изучаем мнения пользователей, чтобы наш алгоритм мог с точностью определять ключевые элементы успешного дизайна: от цветовой палитры и композиции до эмоционального отклика и ассоциаций. Наш ИИ не просто укажет, какие логотипы нравятся аудитории больше, а какие требуют доработки, но и раскроет, почему одни решения работают, а другие — нет.</p><p class="align-center">Мы стремимся создать инструмент, который станет надёжным помощником для дизайнеров и брендов, помогая им создавать логотипы, которые вдохновляют, привлекают и оставляют след в сердцах аудитории.</p></div></div></div></div></section>
-                                
-                                                                                                                                                                                        
-                                
-
-    
- 
-<section
-            data-region="1"
-        id="services"
-        class="widget-services -nt-widget on-view services services_light block-8 widget-sort on-plate onmain widget-block nh-editor-panel lazyload "
-             style="
-                      background-position: top left;
-             background-repeat: no-repeat;
-             background-size: auto;
-                               background-color: #FFFFFF;
-         "
-             >
-    <link href="//s.siteapi.org/frontend/static/grid_12/css/service.d8cb0d.min.css" rel="stylesheet" type="text/css"/>        <div class="widget">
-                <div class="widget__wrapper">
-            <div class="widget__header widget__header--indent-bottom widget__header--center widget__header__title_underlined"><h2 class="nh-h2 widget__header__title 
-                        widget__header__title--content widget__header__title--center"><a href="https://analis1.nethouse.ru/services">Логотипы для анализа</a></h2></div>            <div class="content-block widget__content widget__content_filled" id="services-show">
-                <div class="row widget__inner" data-ng-show="$ctrl.showContent()">
-                                            <article><div class="row"><div class="small-up-1 large-up-2  services__list">
-                                                
-<!-- Логотип 1 -->
-<div class="services__item column"><div class="service-item__content"><a href="logo1.html"
-                                class="service-item__content"><div class="row -inline-group_top"><div class="small-6 inline-column"><div class="service-item__image "><div id="avatar-143056735"
-                                                        class="avatar-view image"
-                                                        data-imagetype="2"><picture><source srcset="//i.siteapi.org/_qNmyeexwGOqeOcTH4F_aS4pu6c=/0x0:2458x1747/270x180/center/top/filters:fill(transparent):format(webp)/s2.siteapi.org/ab3217cc07cc4f8/img/f9euc7963ogg0cw8o8w4w0gswko488" type="image/webp"/><img data-src="//i.siteapi.org/DMeO9zs8wWrp8ryhG71SxZqqTEI=/0x0:2458x1747/270x180/center/top/filters:fill(transparent):format(png)/s2.siteapi.org/ab3217cc07cc4f8/img/f9euc7963ogg0cw8o8w4w0gswko488"
-         alt="Логотип 1"
-         class="lazyload "
-         title="Логотип 1"
-                  /></picture></div></div></div><div class=" small-6 inline-column"><div class="service-item__side"><div class="service-item__title">
-                                                    Логотип 1
-                                                </div></div></div></div></a></div></div>
-
-<!-- Логотип 2 -->
-<div class="services__item column"><div class="service-item__content"><a href="/site/logo2.html"
-                                class="service-item__content"><div class="row -inline-group_top"><div class="small-6 inline-column"><div class="service-item__image "><div id="avatar-143056790"
-                                                        class="avatar-view image"
-                                                        data-imagetype="2"><picture><source srcset="//i.siteapi.org/zrJvHpRp7As6rQ2RXUlZLbjZ5Hk=/0x0:2071x1175/270x180/center/top/filters:fill(transparent):format(webp)/s2.siteapi.org/ab3217cc07cc4f8/img/snd08x13gxwk4ocscokow4swcco0sk" type="image/webp"/><img data-src="//i.siteapi.org/xEgR5SPh8OatsxNIOdhNQde94NE=/0x0:2071x1175/270x180/center/top/filters:fill(transparent):format(png)/s2.siteapi.org/ab3217cc07cc4f8/img/snd08x13gxwk4ocscokow4swcco0sk"
-         alt="Логотип 2"
-         class="lazyload "
-         title="Логотип 2"
-                  /></picture></div></div></div><div class=" small-6 inline-column"><div class="service-item__side"><div class="service-item__title">
-                                                    Логотип 2
-                                                </div></div></div></div></a></div></div>
-
-<!-- Логотип 3 -->
-<div class="services__item column"><div class="service-item__content"><a href="/site/logo3.html"
-                                class="service-item__content"><div class="row -inline-group_top"><div class="small-6 inline-column"><div class="service-item__image "><div id="avatar-143057632"
-                                                        class="avatar-view image"
-                                                        data-imagetype="2"><picture><source srcset="//i.siteapi.org/-qJx_KDwTVrVfMCNQ8QbdHn1cQU=/0x0:691x481/270x180/center/top/filters:fill(transparent):format(webp)/s2.siteapi.org/ab3217cc07cc4f8/img/oy46omiy9is8sgk4kokkk8k4440wg8" type="image/webp"/><img data-src="//i.siteapi.org/Qm30xKvvqnkv3H7tQOb1Sv4cEbQ=/0x0:691x481/270x180/center/top/filters:fill(transparent):format(png)/s2.siteapi.org/ab3217cc07cc4f8/img/oy46omiy9is8sgk4kokkk8k4440wg8"
-         alt="Логотип 3"
-         class="lazyload "
-         title="Логотип 3"
-                  /></picture></div></div></div><div class=" small-6 inline-column"><div class="service-item__side"><div class="service-item__title">
-                                                    Логотип 3
-                                                </div></div></div></div></a></div></div>
-
-<!-- Логотип 4 -->
-<div class="services__item column"><div class="service-item__content"><a href="/site/logo4.html"
-                                class="service-item__content"><div class="row -inline-group_top"><div class="small-6 inline-column"><div class="service-item__image "><div id="avatar-143057648"
-                                                        class="avatar-view image"
-                                                        data-imagetype="2"><picture><source srcset="//i.siteapi.org/Y0BNfHC4tzzgu3Jp7CVFeDPNLYg=/0x0:599x375/270x180/center/top/filters:fill(transparent):format(webp)/s2.siteapi.org/ab3217cc07cc4f8/img/8ihhmk9pxv4sk400wgsoocw8k4g8go" type="image/webp"/><img data-src="//i.siteapi.org/P1SQnRkFosWKluPruENUHTha5Ts=/0x0:599x375/270x180/center/top/filters:fill(transparent):format(png)/s2.siteapi.org/ab3217cc07cc4f8/img/8ihhmk9pxv4sk400wgsoocw8k4g8go"
-         alt="Логотип 4"
-         class="lazyload "
-         title="Логотип 4"
-                  /></picture></div></div></div><div class=" small-6 inline-column"><div class="service-item__side"><div class="service-item__title">
-                                                    Логотип 4
-                                                </div></div></div></div></a></div></div>
-
-<!-- Логотип 5 -->
-<div class="services__item column"><div class="service-item__content"><a href="/site/logo5.html"
-                                class="service-item__content"><div class="row -inline-group_top"><div class="small-6 inline-column"><div class="service-item__image "><div id="avatar-143057812"
-                                                        class="avatar-view image"
-                                                        data-imagetype="2"><picture><source srcset="//i.siteapi.org/7sKQuzzFZHDQpqfFab-H0OusVAI=/0x0:850x415/270x180/center/top/filters:fill(transparent):format(webp)/s2.siteapi.org/ab3217cc07cc4f8/img/fvx3iidq41s00okcg88sgwkss0ogo0" type="image/webp"/><img data-src="//i.siteapi.org/sTNsN07PPKfuRaUZXbxiC1RYCrc=/0x0:850x415/270x180/center/top/filters:fill(transparent):format(png)/s2.siteapi.org/ab3217cc07cc4f8/img/fvx3iidq41s00okcg88sgwkss0ogo0"
-         alt="Логотип 5"
-         class="lazyload "
-         title="Логотип 5"
-                  /></picture></div></div></div><div class=" small-6 inline-column"><div class="service-item__side"><div class="service-item__title">
-                                                    Логотип 5
-                                                </div></div></div></div></a></div></div>
-
-</div></div></article>
-                                    </div>
-            </div>
-        </div>
-    </div>
-
-<!-- Замененная часть: кнопка "Оставить отзыв" вместо "Оформить заказ" -->
-<div class="services__order-button text-center">
-    <a href="#review-form"
-       class="button buttons button_for_services-list order-button order">
-        Оставить отзыв
-    </a>
-</div>
-
-</div></div></article>
-                                    </div>
-            </div>
-        </div>
-    </div>
-    <div class="widget__content widget__content_filled">
-        <div class="row">
-            <div data-ng-if="$ctrl.loaded" class="widget__view small-10 small-offset-1 column ng-scope" data-ui-view="services-view"></div>
-        </div>
-    </div>
-    </section>
-
-<!-- Форма для отзывов -->
-<section id="review-form" style="padding: 50px 0; background: #f8f9fa; margin-top: 30px;">
-    <div class="row">
-        <div class="small-12 medium-8 medium-offset-2 columns">
-            <h3 style="text-align: center; margin-bottom: 20px;">Оставить отзыв о логотипах</h3>
+            .section {
+                padding: 20px;
+                margin-bottom: 20px;
+            }
             
-            <form id="reviewForm" style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
-                <div style="margin-bottom: 15px;">
-                    <label for="reviewer-name" style="display: block; margin-bottom: 5px; font-weight: bold;">Ваше имя:</label>
-                    <input type="text" id="reviewer-name" name="name" required 
-                           style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
+            .section-title {
+                font-size: 1.5em;
+            }
+            
+            .logos-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .logo-card {
+                margin-bottom: 15px;
+            }
+            
+            .review-form {
+                padding: 20px;
+            }
+            
+            .review-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+            }
+            
+            .form-input, .form-textarea {
+                padding: 10px;
+            }
+            
+            .submit-button {
+                width: 100%;
+                padding: 12px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 10px;
+            }
+            
+            .section {
+                padding: 15px;
+                border-radius: 8px;
+            }
+            
+            .section-title {
+                font-size: 1.3em;
+                margin-bottom: 15px;
+            }
+            
+            .logo-image {
+                height: 150px;
+            }
+            
+            .logo-info {
+                padding: 15px;
+            }
+        }
+        
+        /* Улучшенная типографика */
+        h1, h2, h3, h4, h5, h6 {
+            color: #5308B7;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+        
+        a {
+            color: #5308B7;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        a:hover {
+            color: #FFD772;
+        }
+        
+        /* Анимации */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.6s ease forwards;
+        }
+        
+        /* Утилиты */
+        .text-center {
+            text-align: center;
+        }
+        
+        .mb-20 {
+            margin-bottom: 20px;
+        }
+        
+        .mt-30 {
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Шапка -->
+    <header class="site-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="/">
+                        <img src="//i.siteapi.org/ajZdkuWuYCN_1fXtX-FnOJBiihs=/fit-in/140x430/filters:format(webp):upscale()/s2.siteapi.org/c1822f4f917c46d/logo/5el72rgjlqscwkwkcs8oo0c84wckw8" alt="Логотип компании">
+                    </a>
                 </div>
                 
-                <div style="margin-bottom: 15px;">
-                    <label for="review-text" style="display: block; margin-bottom: 5px; font-weight: bold;">Ваш отзыв:</label>
-                    <textarea id="review-text" name="comment" required 
-                              style="width: 100%; height: 150px; padding: 10px; border: 1px solid #ddd; border-radius: 4px;"
-                              maxlength="5000"></textarea>
-                    <div id="char-count" style="text-align: right; font-size: 12px; color: #666;">0/5000 символов</div>
-                </div>
+                <button class="mobile-menu-toggle">☰</button>
                 
-                <button type="submit" 
-                        style="background: #FFD772; color: #111213; padding: 12px 30px; border: none; border-radius: 4px; cursor: pointer; font-weight: bold;">
-                    Отправить отзыв
-                </button>
-            </form>
-        </div>
-    </div>
-</section>
-
-<!-- Блок для отображения отзывов -->
-<section id="reviews-container" style="padding: 30px 0; margin-top: 30px;">
-    <div class="row">
-        <div class="small-12 medium-10 medium-offset-1 columns">
-            <h3 style="text-align: center; margin-bottom: 20px;">Отзывы пользователей</h3>
-            <div id="reviews-list" style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
-                <!-- Отзывы будут загружаться здесь -->
+                <nav class="header-nav">
+                    <a href="#about">О компании</a>
+                    <a href="#logos">Логотипы</a>
+                    <a href="#reviews">Отзывы</a>
+                </nav>
             </div>
         </div>
-    </div>
-</section>
+    </header>
 
-                                
-                                                                                        </div>
+    <!-- Основной контент -->
+    <main class="main-content">
+        <div class="container">
+            <!-- О компании -->
+            <section id="about" class="section fade-in">
+                <h2 class="section-title">О компании</h2>
+                <div class="about-content">
+                    <p>Мы — команда визионеров, объединённых страстью к инновациям и эстетике, создающая передовой искусственный интеллект, который переосмысливает искусство дизайна логотипов. Наша компания стремится к тому, чтобы каждый бренд мог обрести визуальную идентичность, которая не только привлекает внимание, но и оставляет глубокий эмоциональный отклик.</p>
+                    
+                    <p>Мы разрабатываем ИИ, который погружается в анализ сотен отзывов о логотипах, изучая их с точки зрения дизайна, психологии восприятия и культурных ассоциаций. Наш процесс начинается с тщательного сбора мнений пользователей — от профессиональных дизайнеров до обычных потребителей.</p>
+                    
+                    <p>Наша цель — не только автоматизировать анализ, но и вдохновлять на создание логотипов, которые становятся культовыми. Мы мечтаем о мире, где каждый бренд, от стартапа до корпорации, сможет с помощью нашего ИИ обрести визуальную гармонию, которая резонирует с их аудиторией.</p>
+                </div>
+            </section>
+
+            <!-- Описание проекта -->
+            <section class="section fade-in">
+                <h2 class="section-title">Описание проекта</h2>
+                <div class="project-description">
+                    <p>Мы — динамичная команда новаторов, объединённых страстью к дизайну и технологиям, работающая над созданием революционного искусственного интеллекта, который изменит мир графического дизайна! Наша миссия — разработать ИИ, способный анализировать отзывы о логотипах, чтобы выявить, что делает их запоминающимися, привлекательными и эффективными для брендов.</p>
+                    
+                    <p>Мы тщательно собираем и изучаем мнения пользователей, чтобы наш алгоритм мог с точностью определять ключевые элементы успешного дизайна: от цветовой палитры и композиции до эмоционального отклика и ассоциаций.</p>
+                    
+                    <p class="text-center">Мы стремимся создать инструмент, который станет надёжным помощником для дизайнеров и брендов, помогая им создавать логотипы, которые вдохновляют, привлекают и оставляют след в сердцах аудитории.</p>
+                </div>
+            </section>
+
+            <!-- Логотипы для анализа -->
+            <section id="logos" class="section fade-in">
+                <h2 class="section-title">Логотипы для анализа</h2>
+                
+                <div class="logos-grid">
+                    <!-- Логотип 1 -->
+                    <div class="logo-card">
+                        <img src="//i.siteapi.org/DMeO9zs8wWrp8ryhG71SxZqqTEI=/0x0:2458x1747/270x180/center/top/filters:fill(transparent):format(png)/s2.siteapi.org/ab3217cc07cc4f8/img/f9euc7963ogg0cw8o8w4w0gswko488" 
+                             alt="Логотип 1" class="logo-image">
+                        <div class="logo-info">
+                            <h3 class="logo-title">Логотип 1</h3>
+                            <a href="logo1.html" class="view-button">Смотреть и оценить</a>
+                        </div>
+                    </div>
+
+                    <!-- Логотип 2 -->
+                    <div class="logo-card">
+                        <img src="//i.siteapi.org/xEgR5SPh8OatsxNIOdhNQde94NE=/0x0:2071x1175/270x180/center/top/filters:fill(transparent):format(png)/s2.siteapi.org/ab3217cc07cc4f8/img/snd08x13gxwk4ocscokow4swcco0sk" 
+                             alt="Логотип 2" class="logo-image">
+                        <div class="logo-info">
+                            <h3 class="logo-title">Логотип 2</h3>
+                            <a href="logo2.html" class="view-button">Смотреть и оценить</a>
+                        </div>
+                    </div>
+
+                    <!-- Логотип 3 -->
+                    <div class="logo-card">
+                        <img src="//i.siteapi.org/Qm30xKvvqnkv3H7tQOb1Sv4cEbQ=/0x0:691x481/270x180/center/top/filters:fill(transparent):format(png)/s2.siteapi.org/ab3217cc07cc4f8/img/oy46omiy9is8sgk4kokkk8k4440wg8" 
+                             alt="Логотип 3" class="logo-image">
+                        <div class="logo-info">
+                            <h3 class="logo-title">Логотип 3</h3>
+                            <a href="logo3.html" class="view-button">Смотреть и оценить</a>
+                        </div>
+                    </div>
+
+                    <!-- Логотип 4 -->
+                    <div class="logo-card">
+                        <img src="//i.siteapi.org/P1SQnRkFosWKluPruENUHTha5Ts=/0x0:599x375/270x180/center/top/filters:fill(transparent):format(png)/s2.siteapi.org/ab3217cc07cc4f8/img/8ihhmk9pxv4sk400wgsoocw8k4g8go" 
+                             alt="Логотип 4" class="logo-image">
+                        <div class="logo-info">
+                            <h3 class="logo-title">Логотип 4</h3>
+                            <a href="logo4.html" class="view-button">Смотреть и оценить</a>
+                        </div>
+                    </div>
+
+                    <!-- Логотип 5 -->
+                    <div class="logo-card">
+                        <img src="//i.siteapi.org/sTNsN07PPKfuRaUZXbxiC1RYCrc=/0x0:850x415/270x180/center/top/filters:fill(transparent):format(png)/s2.siteapi.org/ab3217cc07cc4f8/img/fvx3iidq41s00okcg88sgwkss0ogo0" 
+                             alt="Логотип 5" class="logo-image">
+                        <div class="logo-info">
+                            <h3 class="logo-title">Логотип 5</h3>
+                            <a href="logo5.html" class="view-button">Смотреть и оценить</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Форма для отзывов -->
+            <section id="reviews" class="section fade-in">
+                <h2 class="section-title">Оставить отзыв о логотипах</h2>
+                
+                <form id="reviewForm" class="review-form">
+                    <div class="form-group">
+                        <label for="reviewer-name" class="form-label">Ваше имя:</label>
+                        <input type="text" id="reviewer-name" name="name" required class="form-input" placeholder="Введите ваше имя">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="review-text" class="form-label">Ваш отзыв:</label>
+                        <textarea id="review-text" name="comment" required class="form-textarea" 
+                                  placeholder="Поделитесь вашим мнением о логотипах..." maxlength="5000"></textarea>
+                        <div id="char-count" class="text-center mt-10" style="color: #666; font-size: 14px;">0/5000 символов</div>
+                    </div>
+                    
+                    <button type="submit" class="submit-button">Отправить отзыв</button>
+                </form>
+            </section>
+
+            <!-- Блок для отображения отзывов -->
+            <section class="section fade-in">
+                <h2 class="section-title">Отзывы пользователей</h2>
+                
+                <div id="reviews-list" class="reviews-container">
+                    <div class="text-center" style="padding: 40px; color: #666;">
+                        <h3>Система отзывов</h3>
+                        <p>Перейдите на страницу конкретного логотипа чтобы увидеть и оставить отзывы</p>
+                        <div style="margin-top: 20px;">
+                            <a href="logo1.html" class="view-button" style="display: inline-block; margin: 5px;">Логотип 1</a>
+                            <a href="logo2.html" class="view-button" style="display: inline-block; margin: 5px;">Логотип 2</a>
+                            <a href="logo3.html" class="view-button" style="display: inline-block; margin: 5px;">Логотип 3</a>
+                            <a href="logo4.html" class="view-button" style="display: inline-block; margin: 5px;">Логотип 4</a>
+                            <a href="logo5.html" class="view-button" style="display: inline-block; margin: 5px;">Логотип 5</a>
+                        </div>
+                    </div>
+                </div>
             </section>
         </div>
-    </div>
+    </main>
 
-    <footer id="footer" class="site-footer site-footer_dark">
-    <div data-widget-store-list="footer"
-         data-region="2"
-         data-module="2">
-            </div>
-</footer>
-
-    
-<!-- Админка для удаления отзывов -->
-<section id="admin-panel" style="padding: 30px 0; margin-top: 30px; background: #f0f0f0; display: none;">
-    <div class="row">
-        <div class="small-12 medium-10 medium-offset-1 columns">
-            <h3 style="text-align: center; margin-bottom: 20px;">💻 Панель администратора</h3>
-            
-            <div style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
-                <h4 style="margin-bottom: 15px;">Управление отзывами</h4>
-                
-                <div id="admin-reviews-list">
-                    <!-- Здесь будут отзывы для админки -->
-                </div>
-                
-                <div style="margin-top: 20px; text-align: center;">
-                    <button onclick="hideAdminPanel()" style="background: #ff4444; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer;">
-                        Закрыть админку
-                    </button>
-                </div>
-            </div>
+    <!-- Футер -->
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2024 Брендинг территорий. Все права защищены.</p>
         </div>
-    </div>
-</section>
+    </footer>
 
-<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
-<script>
-// Конфигурация
-const supabaseUrl = 'https://fdwdfyifbvoqzknpjmby.supabase.co'
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZkd2RmeWlmYnZvcXprbnBqbWJ5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTYzMzIwOTcsImV4cCI6MjA3MTkwODA5N30.y94t93awxRqsrNkUVZhjyhEbVPOopAS2e5hBsymecn8'
-
-// Глобальная переменная
-let supabase;
-
-// Ждем загрузки библиотеки и страницы
-document.addEventListener('DOMContentLoaded', function() {
-    if (window.supabase) {
-        supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
-        console.log('Supabase подключен');
-        initReviewSystem();
-    } else {
-        console.error('Supabase library not loaded');
-    }
-});
-
-function initReviewSystem() {
-    // ===== ВЕСЬ ВАШ КОД С ФУНКЦИЯМИ ЗДЕСЬ =====
-    // loadReviews, saveReview, displayReviews и т.д.
-    // Используйте переменную supabase
-    // Функция для загрузки отзывов
-async function loadReviews() {
-    try {
-        const reviewsList = document.getElementById('reviews-list');
-        if (!reviewsList) return;
-        
-        // НЕ загружаем отзывы на главной
-        reviewsList.innerHTML = `
-            <div style="text-align: center; padding: 40px;">
-                <h3>Система отзывов</h3>
-                <p>Перейдите на страницу конкретного логотипа чтобы увидеть и оставить отзывы</p>
-                <div style="margin-top: 20px;">
-                    <a href="logo1.html" style="margin: 0 10px;">Логотип 1</a>
-                    <a href="logo2.html" style="margin: 0 10px;">Логотип 2</a>
-                    <a href="logo3.html" style="margin: 0 10px;">Логотип 3</a>
-                    <a href="logo4.html" style="margin: 0 10px;">Логотип 4</a>
-                    <a href="logo5.html" style="margin: 0 10px;">Логотип 5</a>
-                </div>
-            </div>
-        `;
-        
-    } catch (error) {
-        console.error('Ошибка загрузки:', error);
-        const reviewsList = document.getElementById('reviews-list');
-        if (reviewsList) {
-            reviewsList.innerHTML = '<p style="text-align: center; color: #ff0000;">Ошибка загрузки</p>';
-        }
-    }
-}
-
-// Функция для отображения отзывов
-function displayReviews(reviews) {
-    const reviewsList = document.getElementById('reviews-list');
-    reviewsList.innerHTML = '';
-    
-    if (reviews.length === 0) {
-        reviewsList.innerHTML = '<p style="text-align: center; color: #666;">Пока нет отзывов. Будьте первым!</p>';
-        return;
-    }
-    
-    reviews.forEach(review => {
-        const reviewElement = document.createElement('div');
-        reviewElement.style.borderBottom = '1px solid #eee';
-        reviewElement.style.padding = '15px 0';
-        
-        const date = new Date(review.created_at).toLocaleDateString('ru-RU', {
-            year: 'numeric', month: 'long', day: 'numeric',
-            hour: '2-digit', minute: '2-digit'
+    <!-- JavaScript -->
+    <script>
+        // Мобильное меню
+        document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
+            document.querySelector('.header-nav').classList.toggle('active');
         });
-        
-        reviewElement.innerHTML = `
-            <div style="font-weight: bold; margin-bottom: 5px; color: #5308B7;">${review.name}</div>
-            <div style="color: #666; font-size: 14px; margin-bottom: 10px;">${date}</div>
-            <div style="line-height: 1.5;">${review.comment}</div>
-        `;
-        
-        reviewsList.appendChild(reviewElement);
-    });
-}
 
-// Функция для сохранения отзыва
-async function saveReview(name, comment) {
-    try {
-        const { error } = await supabase
-            .from('reviews')
-            .insert([
-                {
-                    name: name,
-                    comment: comment
-                }
-            ]);
-        
-        if (error) throw error;
-        return true;
-        
-    } catch (error) {
-        console.error('Ошибка сохранения:', error);
-        return false;
-    }
-}
-
-// Обработчик отправки формы
-document.getElementById('reviewForm').addEventListener('submit', async function(e) {
-    e.preventDefault();
-    
-    const name = document.getElementById('reviewer-name').value.trim();
-    const comment = document.getElementById('review-text').value.trim();
-    
-    if (!name || !comment) {
-        alert('Пожалуйста, заполните все поля');
-        return;
-    }
-    
-    const submitBtn = this.querySelector('button[type="submit"]');
-    const originalText = submitBtn.textContent;
-    submitBtn.textContent = 'Отправка...';
-    submitBtn.disabled = true;
-    
-    const success = await saveReview(name, comment);
-    
-    if (success) {
-        document.getElementById('reviewForm').reset();
-        document.getElementById('char-count').textContent = '0/5000 символов';
-        await loadReviews();
-        document.getElementById('reviews-container').scrollIntoView({ 
-            behavior: 'smooth', block: 'start'
-        });
-        alert('Спасибо за ваш отзыв! ✅');
-    } else {
-        alert('Ошибка при отправке отзыва.');
-    }
-    
-    submitBtn.textContent = originalText;
-    submitBtn.disabled = false;
-});
-
-// Счетчик символов
-document.getElementById('review-text').addEventListener('input', function() {
-    const length = this.value.length;
-    const counter = document.getElementById('char-count');
-    counter.textContent = `${length}/5000 символов`;
-    counter.style.color = length > 4500 ? '#ff0000' : length > 4000 ? '#ff6600' : '#666';
-});
-
-// Загружаем отзывы при загрузке страницы
-document.addEventListener('DOMContentLoaded', function() {
-    loadReviews();
-    
-    document.querySelector('a[href="#review-form"]').addEventListener('click', function(e) {
-        e.preventDefault();
-        document.getElementById('review-form').scrollIntoView({ 
-            behavior: 'smooth', block: 'start'
-        });
-    });
-});
-
-// Админ-панель
-async function showAdminPanel() {
-    const password = prompt('Введите пароль админа:');
-    if (password === '1') {
-        document.getElementById('admin-panel').style.display = 'block';
-        await loadAdminReviews();
-    } else if (password !== null) {
-        alert('Неверный пароль');
-    }
-}
-
-function hideAdminPanel() {
-    document.getElementById('admin-panel').style.display = 'none';
-}
-
-async function loadAdminReviews() {
-    try {
-        const adminList = document.getElementById('admin-reviews-list');
-        adminList.innerHTML = '<p style="text-align: center; color: #666;">Загрузка...</p>';
-        
-        const { data: reviews, error } = await supabase
-            .from('reviews')
-            .select('*')
-            .order('created_at', { ascending: false });
-        
-        if (error) throw error;
-        
-        adminList.innerHTML = '';
-        
-        if (reviews.length === 0) {
-            adminList.innerHTML = '<p style="text-align: center; color: #666;">Нет отзывов для управления</p>';
-            return;
-        }
-        
-        reviews.forEach(review => {
-            const reviewElement = document.createElement('div');
-            reviewElement.style.border = '1px solid #ddd';
-            reviewElement.style.borderRadius = '8px';
-            reviewElement.style.padding = '15px';
-            reviewElement.style.marginBottom = '15px';
-            reviewElement.style.background = '#f9f9f9';
-            
-            const date = new Date(review.created_at).toLocaleDateString('ru-RU', {
-                year: 'numeric', month: 'long', day: 'numeric',
-                hour: '2-digit', minute: '2-digit'
+        // Закрытие меню при клике на ссылку
+        document.querySelectorAll('.header-nav a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.querySelector('.header-nav').classList.remove('active');
             });
-            
-            reviewElement.innerHTML = `
-                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px;">
-                    <div>
-                        <div style="font-weight: bold; color: #5308B7;">${review.name}</div>
-                        <div style="color: #666; font-size: 12px;">ID: ${review.id}</div>
-                        <div style="color: #666; font-size: 12px;">${date}</div>
-                    </div>
-                    <button onclick="window.deleteReview && window.deleteReview(${review.id})" style="background: #ff4444; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; font-size: 12px;">
-                        ❌ Удалить
-                    </button>
-                </div>
-                <div style="background: white; padding: 10px; border-radius: 4px; border-left: 3px solid #5308B7;">
-                    ${review.comment}
-                </div>
-            `;
-            
-            adminList.appendChild(reviewElement);
         });
+
+        // Плавная прокрутка
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Счетчик символов
+        const textarea = document.getElementById('review-text');
+        const counter = document.getElementById('char-count');
         
-    } catch (error) {
-        console.error('Ошибка загрузки админ-панели:', error);
-        adminList.innerHTML = '<p style="text-align: center; color: #ff0000;">Ошибка загрузки</p>';
-    }
-}
+        if (textarea && counter) {
+            textarea.addEventListener('input', function() {
+                const length = this.value.length;
+                counter.textContent = `${length}/5000 символов`;
+                counter.style.color = length > 4500 ? '#ff0000' : length > 4000 ? '#ff6600' : '#666';
+            });
+        }
 
-async function deleteReview(reviewId) {
-    if (!confirm('Вы уверены, что хотите удалить этот отзыв?')) {
-        return;
-    }
-    
-    try {
-        const { error } = await supabase
-            .from('reviews')
-            .delete()
-            .eq('id', reviewId);
-        
-        if (error) throw error;
-        
-        alert('Отзыв успешно удален!');
-        await loadReviews();
-        await loadAdminReviews();
-        
-    } catch (error) {
-        console.error('Ошибка удаления:', error);
-        alert('Ошибка при удалении отзыва');
-    }
-}
-    // Загружаем отзывы при загрузке страницы
-    loadReviews();
-// ===== СИСТЕМА ОТЗЫВОВ =====
+        // Обработка формы
+        const form = document.getElementById('reviewForm');
+        if (form) {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const name = document.getElementById('reviewer-name').value.trim();
+                const comment = document.getElementById('review-text').value.trim();
+                
+                if (!name || !comment) {
+                    alert('Пожалуйста, заполните все поля');
+                    return;
+                }
+                
+                alert('Спасибо за ваш отзыв! На главной странице отзывы не сохраняются - перейдите на страницу конкретного логотипа.');
+                form.reset();
+                document.getElementById('char-count').textContent = '0/5000 символов';
+            });
+        }
 
+        // Анимация при скролле
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
 
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
 
-// Активация админ-панели по комбинации клавиш
-document.addEventListener('keydown', function(e) {
-    if (e.ctrlKey && e.altKey && e.key === 'a') {
-        e.preventDefault();
-        showAdminPanel();
-    }
-});
-
-    window.deleteReview = deleteReview;
-    window.showAdminPanel = showAdminPanel;
-    window.hideAdminPanel = hideAdminPanel;
-
-console.log('Supabase подключен');
-console.log('Админ-панель: Ctrl+Alt+A');
-}
-</script>
-
+        document.querySelectorAll('.section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
 </body>
 </html>
