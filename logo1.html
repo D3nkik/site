@@ -459,6 +459,19 @@
         ::-webkit-scrollbar-thumb:hover {
             background: #a8a8a8;
         }
+        .rating-star {
+            font-size: 28px;
+            margin: 0 2px;
+            display: inline-block;
+        }
+
+        .average-rating {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2px;
+            margin-bottom: 10px;
+        }
     </style>
 </head>
 <body>
@@ -818,22 +831,36 @@
     }
 
     // Обновление отображения рейтинга
+    // Обновление отображения рейтинга с CSS классами
     function updateRatingDisplay(average, count) {
-        const fullStars = Math.floor(average);
-        const hasHalfStar = average % 1 >= 0.5;
+        const starsContainer = document.getElementById('average-stars');
+        starsContainer.innerHTML = ''; // Очищаем контейнер
         
-        let starsHtml = '';
         for (let i = 1; i <= 5; i++) {
-            if (i <= fullStars) {
-                starsHtml += '★';
-            } else if (i === fullStars + 1 && hasHalfStar) {
-                starsHtml += '⯨';
+            const star = document.createElement('span');
+            star.className = 'rating-star';
+            
+            if (i <= Math.floor(average)) {
+                // Полная звезда
+                star.innerHTML = '★';
+                star.style.color = '#FFD772';
+            } else if (i === Math.ceil(average) && average % 1 > 0) {
+                // Частичная звезда (градиент)
+                star.innerHTML = '★';
+                const percentage = (average % 1) * 100;
+                star.style.background = `linear-gradient(90deg, #FFD772 ${percentage}%, #e0e0e0 ${percentage}%)`;
+                star.style.backgroundClip = 'text';
+                star.style.webkitBackgroundClip = 'text';
+                star.style.color = 'transparent';
             } else {
-                starsHtml += '☆';
+                // Пустая звезда
+                star.innerHTML = '★';
+                star.style.color = '#e0e0e0';
             }
+            
+            starsContainer.appendChild(star);
         }
         
-        document.getElementById('average-stars').innerHTML = starsHtml;
         document.getElementById('average-value').textContent = average.toFixed(1);
         document.getElementById('rating-count').textContent = `(${count} ${getRatingWord(count)})`;
     }
