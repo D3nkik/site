@@ -597,6 +597,21 @@
                             <a href="logo5.html" class="view-button">Оценить логотип</a>
                         </div>
                     </div>
+
+                    <!-- Логотип 6 -->
+                    <div class="logo-card">
+                        <div class="logo-image-container">
+                            <img src="images/2025-08-30_23-32-45.png" 
+                                 alt="Логотип 6" class="logo-image">
+                        </div>
+                        <div class="logo-info">
+                            <h3 class="logo-title">Логотип 6</h3>
+                            <div class="logo-rating" id="logo6-rating">
+                                <div class="no-ratings">Пока нет оценок</div>
+                            </div>
+                            <a href="logo6.html" class="view-button">Оценить логотип</a>
+                        </div>
+                    </div>
                 </div>
             </section>
         </div>
@@ -684,7 +699,7 @@
                 const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
                 
                 // Получаем рейтинги для всех логотипов
-                for (let i = 1; i <= 5; i++) {
+                for (let i = 1; i <= 6; i++) {
                     const ratingElement = document.getElementById(`logo${i}-rating`);
                     
                     if (ratingElement) {
